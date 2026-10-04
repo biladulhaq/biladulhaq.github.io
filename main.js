@@ -343,7 +343,7 @@
 
   /* ---------- hero: live clock, uptime, barcode, tilt ---------- */
   function initClock() {
-    const timeEl = $('#riyadh-time');
+    const timeEl = $('#local-time');
     const upEl = $('#uptime');
     let fmt = null;
     try {
@@ -900,7 +900,7 @@
     });
 
     define('whoami', [], 'Who is Bilad?', () => (
-      `bilad-pc\\bilad\n\n<b>Muhammad Bilad Ul Haq</b>\nIT Support Specialist · Riyadh, Saudi Arabia\n3+ years of help desk and desktop support in Saudi Arabia and Pakistan.\nNow on-site at Sinopec Petroleum (via EFFC), supporting 55+ users.`
+      `bilad-pc\\bilad\n\n<b>Muhammad Bilad Ul Haq</b>\nIT Support Specialist · Khobar, Dammam, KSA\n3+ years of help desk and desktop support in Saudi Arabia and Pakistan.\nNow on-site at Sinopec Petroleum (via EFFC), supporting 55+ users.`
     ));
 
     define('Get-Skills', ['skills'], 'Skills by category', () => ({
@@ -959,9 +959,9 @@ Arabic    [###--]  Conversational, supports Arabic-speaking users`,
       return null;
     });
 
-    define('Get-Date', ['date', 'time'], 'Current time in Riyadh', () => {
+    define('Get-Date', ['date', 'time'], 'Current time in Khobar', () => {
       try {
-        return new Date().toLocaleString('en-US', { timeZone: 'Asia/Riyadh', weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: '2-digit', second: '2-digit' }) + ' (Riyadh, AST)';
+        return new Date().toLocaleString('en-US', { timeZone: 'Asia/Riyadh', weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: '2-digit', second: '2-digit' }) + ' (Khobar, AST)';
       } catch (e) {
         return new Date().toString();
       }
@@ -983,7 +983,7 @@ Arabic    [###--]  Conversational, supports Arabic-speaking users`,
         '<span class="t-y">visitor</span>@<span class="t-y">bilad</span>',
         '-------------',
         `<span class="t-y">Role</span>    IT Support Specialist`,
-        `<span class="t-y">Base</span>    Riyadh, Saudi Arabia`,
+        `<span class="t-y">Base</span>    Khobar, Dammam, KSA`,
         `<span class="t-y">Uptime</span>  ${d.y} years, ${d.m} months`,
         `<span class="t-y">Stack</span>   Windows, M365, AD, ITIL v4`,
         `<span class="t-y">Shell</span>   PowerShell`,
@@ -1398,7 +1398,7 @@ Ethernet adapter Visitor:
     const parts = $$('[data-step]', preview);
     const LINES = [
       { step: 1, seg: [['<', 'p'], ['nav', 't'], [' class', 'a'], ['=', 'p'], ['"top"', 's'], ['>', 'p']] },
-      { step: 2, seg: [['<', 'p'], ['h1', 't'], ['>', 'p'], ['Hello, Riyadh', 'x'], ['</', 'p'], ['h1', 't'], ['>', 'p']] },
+      { step: 2, seg: [['<', 'p'], ['h1', 't'], ['>', 'p'], ['Hello, Khobar', 'x'], ['</', 'p'], ['h1', 't'], ['>', 'p']] },
       { step: 3, seg: [['<', 'p'], ['a', 't'], [' class', 'a'], ['=', 'p'], ['"btn"', 's'], ['>', 'p'], ['Start', 'x'], ['</', 'p'], ['a', 't'], ['>', 'p']] },
       { step: 4, seg: [['<', 'p'], ['div', 't'], [' class', 'a'], ['=', 'p'], ['"cards"', 's'], ['>', 'p'], ['...', 'x'], ['</', 'p'], ['div', 't'], ['>', 'p']] },
       { step: 5, seg: [['<', 'p'], ['footer', 't'], ['>', 'p'], ['© 2026', 'x'], ['</', 'p'], ['footer', 't'], ['>', 'p']] },
