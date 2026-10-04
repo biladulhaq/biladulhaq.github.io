@@ -1,659 +1,732 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="color-scheme" content="light">
-<meta name="theme-color" content="#FFFFFF">
-<title>Muhammad Bilad Ul Haq | IT Support Specialist</title>
-<meta name="description" content="IT Support Specialist in Riyadh with 3+ years of help desk and desktop support: Microsoft 365, Active Directory, ITIL, networking.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-  :root {
-    color-scheme: light;
-    --bg: #F6F9F8;
-    --surface: #FFFFFF;
-    --ink: #1F2D2B;
-    --muted: #5B6B68;
-    --line: #DCE5E2;
-    --teal: #0B7468;
-    --teal-bright: #19A89A;
-    --teal-soft: #E1F3EF;
-    --sun: #F2B544;
-    --sun-soft: #FFF1D6;
-    --ok: #2F9E57;
-    --bar: 4rem;
-    box-sizing: border-box;
-  }
-  *, *::before, *::after { box-sizing: inherit; }
-  html { scroll-padding-top: calc(env(safe-area-inset-top, 0px) + var(--bar) + 1rem); }
-  body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--ink);
-    font-family: "IBM Plex Sans", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    font-size: 1.0625rem;
-    line-height: 1.6;
-    padding-bottom: env(safe-area-inset-bottom, 0px);
-  }
-  a { color: inherit; }
-  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
-    outline: 3px solid var(--sun); outline-offset: 3px;
-  }
-  .wrap { max-width: 64rem; margin: 0 auto; padding: 0 1.5rem; }
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Muhammad Bilad Ul Haq | IT Support Specialist</title>
+  <meta name="description" content="IT Support Specialist in Riyadh with 3+ years of help desk and desktop support: Microsoft 365, Active Directory, networking and ITIL service management.">
+  <meta name="author" content="Muhammad Bilad Ul Haq">
+  <meta name="theme-color" content="#0A1020">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Muhammad Bilad Ul Haq | IT Support Specialist">
+  <meta property="og:description" content="3+ years keeping enterprise users online in Saudi Arabia and Pakistan. Microsoft 365, Active Directory, networking, ITIL.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230A1020'/%3E%3Cpath d='M10 7v18M10 7h6.5a4.5 4.5 0 0 1 0 9H10M10 16h7.5a4.5 4.5 0 0 1 0 9H10' fill='none' stroke='%23FFB547' stroke-width='3' stroke-linejoin='round'/%3E%3Ccircle cx='25.5' cy='6.5' r='3' fill='%233DDC97'/%3E%3C/svg%3E">
 
-  /* ---------- Top navigation ---------- */
-  .topbar {
-    position: sticky; top: 0; z-index: 20;
-    background: rgba(255, 255, 255, 0.82);
-    -webkit-backdrop-filter: saturate(160%) blur(12px);
-    backdrop-filter: saturate(160%) blur(12px);
-    border-bottom: 1px solid var(--line);
-    padding-top: env(safe-area-inset-top, 0px);
-  }
-  .topbar .wrap { display: flex; align-items: center; gap: 1rem; min-height: var(--bar); }
-  .brand {
-    font-family: "IBM Plex Sans Condensed", "Arial Narrow", sans-serif;
-    font-weight: 600; font-size: 1.25rem;
-    text-decoration: none; white-space: nowrap;
-    display: flex; align-items: center; gap: 0.55rem;
-  }
-  .brand i {
-    display: inline-grid; place-items: center;
-    width: 2rem; height: 2rem; border-radius: 50%;
-    background: var(--teal); color: #fff;
-    font-style: normal; font-size: 0.85rem; letter-spacing: 0.03em;
-  }
-  nav { flex: 1; overflow-x: auto; scrollbar-width: none; }
-  nav::-webkit-scrollbar { display: none; }
-  nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 0.25rem; justify-content: flex-end; }
-  nav a {
-    display: block;
-    padding: 0.45rem 0.85rem;
-    border-radius: 999px;
-    text-decoration: none; font-weight: 500; font-size: 0.975rem;
-    color: var(--muted);
-    white-space: nowrap;
-    transition: background 0.2s, color 0.2s;
-  }
-  nav a:hover { color: var(--ink); background: var(--teal-soft); }
-  nav a[aria-current="page"] { color: var(--teal); background: var(--teal-soft); font-weight: 600; }
-  .cv-link {
-    white-space: nowrap; font-weight: 600; font-size: 0.925rem;
-    text-decoration: none; color: #fff;
-    background: var(--teal);
-    padding: 0.5rem 1rem; border-radius: 999px;
-  }
-  .cv-link:hover { background: #095F55; }
-  .cv-link { order: 3; }
-  @media (max-width: 800px) {
-    :root { --bar: 6.4rem; }
-    .topbar .wrap { flex-wrap: wrap; gap: 0; padding-top: 0.6rem; min-height: 0; }
-    .brand { flex: 1; }
-    .cv-link { order: 2; }
-    nav { flex-basis: 100%; order: 3; margin: 0.5rem -1.5rem 0; padding: 0 1rem 0.6rem; }
-    nav ul { justify-content: flex-start; }
-  }
+  <script>
+    (function () {
+      var root = document.documentElement;
+      root.classList.add('js');
+      var theme = 'dark';
+      var firstVisit = false;
+      try { if (localStorage.getItem('bilad-theme') === 'light') theme = 'light'; } catch (e) {}
+      try { firstVisit = !sessionStorage.getItem('bilad-booted'); } catch (e) {}
+      root.setAttribute('data-theme', theme);
+      var calm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (firstVisit && !calm) root.classList.add('booting');
+      // If the main script never loads, show the page instead of leaving animated parts hidden.
+      setTimeout(function () { if (!window.__biladReady) root.classList.remove('js', 'booting'); }, 3000);
+    })();
+  </script>
 
-  .view[hidden] { display: none; }
-  .view.enter { animation: viewIn 0.4s ease-out; }
-  @keyframes viewIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
-  .page { padding: 3rem 0 5rem; }
-
-  h1 {
-    font-family: "IBM Plex Sans Condensed", "Arial Narrow", "Roboto Condensed", sans-serif;
-    font-weight: 600;
-    font-size: clamp(2.7rem, 7vw, 5rem);
-    line-height: 0.98; letter-spacing: -0.015em;
-    margin: 0 0 1.1rem;
-  }
-  h1 span { display: block; }
-  h2 {
-    font-family: "IBM Plex Sans Condensed", "Arial Narrow", sans-serif;
-    font-weight: 600; font-size: clamp(1.75rem, 4vw, 2.25rem); line-height: 1.15;
-    margin: 0 0 1.5rem;
-  }
-  h1:focus, h2:focus { outline: none; }
-  h3 { font-size: 1.2rem; line-height: 1.35; margin: 0; }
-  .subhead {
-    font-family: "IBM Plex Sans Condensed", "Arial Narrow", sans-serif;
-    font-weight: 600; font-size: 1.5rem;
-    margin: 3rem 0 1.25rem;
-  }
-  p { max-width: 68ch; }
-  .muted { color: var(--muted); }
-
-  /* ---------- Full-screen cover ---------- */
-  .cover {
-    position: relative;
-    min-height: calc(100vh - var(--bar));
-    min-height: calc(100svh - var(--bar) - env(safe-area-inset-top, 0px));
-    display: flex; align-items: center;
-    padding: 3rem 0 5.5rem;
-    overflow: hidden;
-    background: linear-gradient(150deg, #DDF2EC 0%, #F6F9F8 48%, #FFF3DC 100%);
-    isolation: isolate;
-  }
-  .cover::before {
-    content: ""; position: absolute; inset: 0; z-index: -1;
-    background-image: radial-gradient(rgba(11, 116, 104, 0.16) 1.2px, transparent 1.6px);
-    background-size: 24px 24px;
-    -webkit-mask-image: linear-gradient(115deg, #000 0%, transparent 65%);
-    mask-image: linear-gradient(115deg, #000 0%, transparent 65%);
-  }
-  .blob {
-    position: absolute; z-index: -1;
-    border-radius: 50%;
-    filter: blur(70px);
-    opacity: 0.45;
-    animation: drift 18s ease-in-out infinite alternate;
-  }
-  .blob.a { width: 26rem; height: 26rem; background: #8FDCCD; top: -8rem; right: -6rem; }
-  .blob.b { width: 22rem; height: 22rem; background: #FFD58A; bottom: -9rem; left: 30%; animation-duration: 22s; }
-  @keyframes drift { to { transform: translate(-2.5rem, 2rem) scale(1.08); } }
-
-  .hero {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr minmax(15rem, 20rem);
-    gap: clamp(2rem, 6vw, 5rem);
-    align-items: center;
-  }
-  .open {
-    display: inline-flex; align-items: center; gap: 0.55rem;
-    font-size: 0.925rem; font-weight: 500;
-    background: rgba(255, 255, 255, 0.85);
-    border: 1px solid var(--line);
-    border-radius: 999px;
-    padding: 0.35rem 0.9rem 0.35rem 0.75rem;
-    margin-bottom: 1.5rem;
-  }
-  .dot { position: relative; width: 9px; height: 9px; border-radius: 50%; background: var(--ok); flex: none; }
-  .dot::after {
-    content: ""; position: absolute; inset: 0; border-radius: 50%;
-    background: var(--ok);
-    animation: ping 2s ease-out infinite;
-  }
-  @keyframes ping { 0% { transform: scale(1); opacity: 0.7; } 80%, 100% { transform: scale(2.6); opacity: 0; } }
-
-  .pitch { font-size: clamp(1.15rem, 2.2vw, 1.35rem); line-height: 1.5; margin: 0 0 0.75rem; max-width: 34ch; }
-  .where { color: var(--muted); margin: 0 0 2rem; max-width: 46ch; }
-  .actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
-  .btn {
-    display: inline-block;
-    padding: 0.8rem 1.4rem;
-    border-radius: 999px;
-    font: inherit; font-weight: 600;
-    text-decoration: none;
-    border: 2px solid var(--teal);
-    cursor: pointer;
-    background: rgba(255, 255, 255, 0.7); color: var(--teal);
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
-  }
-  .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(11, 116, 104, 0.18); }
-  .btn.primary { background: var(--teal); color: #fff; }
-
-  /* Photo */
-  .portrait { position: relative; margin: 0; justify-self: end; width: 100%; }
-  .portrait::before {
-    content: ""; position: absolute;
-    inset: 1.1rem -1.1rem -1.1rem 1.1rem;
-    background: var(--sun);
-    border-radius: 28px;
-  }
-  .frame {
-    position: relative;
-    aspect-ratio: 4 / 5;
-    border-radius: 28px;
-    overflow: hidden;
-    background: linear-gradient(160deg, var(--teal-bright), var(--teal));
-    display: grid; place-items: center;
-    box-shadow: 0 20px 45px rgba(31, 45, 43, 0.18);
-  }
-  .frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-  .monogram {
-    font-family: "IBM Plex Sans Condensed", "Arial Narrow", sans-serif;
-    font-weight: 600; font-size: 5.5rem; color: #fff;
-  }
-  .portrait figcaption {
-    position: absolute; left: -1.5rem; bottom: 1.5rem;
-    background: var(--surface);
-    border-radius: 14px;
-    padding: 0.6rem 0.95rem;
-    font-size: 0.85rem; line-height: 1.35;
-    box-shadow: 0 10px 28px rgba(31, 45, 43, 0.16);
-  }
-  .portrait figcaption strong { display: block; font-size: 0.95rem; }
-
-  .scroll-cue {
-    position: absolute; left: 50%; bottom: 1.5rem;
-    transform: translateX(-50%);
-    background: none; border: 0; cursor: pointer;
-    font: inherit; font-size: 0.9rem; color: var(--muted);
-    display: flex; flex-direction: column; align-items: center; gap: 0.3rem;
-  }
-  .scroll-cue svg { animation: nudge 1.8s ease-in-out infinite; }
-  @keyframes nudge { 50% { transform: translateY(5px); } }
-
-  /* Laptop / desktop: wide cover */
-  @media (min-width: 1200px) {
-    .wrap { max-width: 72rem; }
-  }
-  /* Tablet */
-  @media (max-width: 900px) {
-    .hero { grid-template-columns: 1fr 15rem; }
-  }
-  /* Mobile: stacked cover, photo on top */
-  @media (max-width: 680px) {
-    .cover { align-items: flex-start; padding: 2rem 0 5rem; }
-    .hero { grid-template-columns: 1fr; gap: 2.25rem; }
-    .portrait { order: -1; justify-self: start; max-width: 12rem; }
-    .portrait::before { inset: 0.7rem -0.7rem -0.7rem 0.7rem; border-radius: 22px; }
-    .frame { border-radius: 22px; }
-    .monogram { font-size: 4rem; }
-    .portrait figcaption { left: auto; right: -5.5rem; bottom: 1rem; }
-    .blob.a { width: 18rem; height: 18rem; }
-    .blob.b { width: 16rem; height: 16rem; left: -4rem; }
-    .actions .btn { flex: 1 1 auto; text-align: center; white-space: nowrap; padding: 0.75rem 1.1rem; }
-    .portrait { max-width: 10.5rem; }
-  }
-  /* Short laptop screens: keep the cover compact */
-  @media (min-width: 681px) and (max-height: 700px) {
-    .portrait { max-width: 15rem; justify-self: end; }
-    h1 { font-size: clamp(2.5rem, 6vw, 3.8rem); }
-  }
-
-  /* Load sequence */
-  .intro .rise { opacity: 0; transform: translateY(18px); animation: rise 0.7s cubic-bezier(.2,.7,.2,1) forwards; }
-  .intro .rise:nth-child(1) { animation-delay: 0.05s; }
-  .intro .rise:nth-child(2) { animation-delay: 0.15s; }
-  .intro .rise:nth-child(3) { animation-delay: 0.25s; }
-  .intro .rise:nth-child(4) { animation-delay: 0.35s; }
-  .intro .rise:nth-child(5) { animation-delay: 0.45s; }
-  .intro .portrait { opacity: 0; transform: scale(0.94); animation: rise 0.9s cubic-bezier(.2,.7,.2,1) 0.2s forwards; }
-  .intro .portrait::before { transform: translate(-1.1rem, -1.1rem); animation: slot 0.7s cubic-bezier(.2,.7,.2,1) 0.75s forwards; }
-  @keyframes rise { to { opacity: 1; transform: none; } }
-  @keyframes slot { to { transform: none; } }
-
-  /* ---------- Results ---------- */
-  .results {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(12.5rem, 1fr));
-    gap: 1rem;
-    margin: 0;
-  }
-  .results div {
-    background: var(--surface);
-    border-radius: 18px;
-    padding: 1.35rem 1.3rem;
-    border: 1px solid var(--line);
-  }
-  .results dt {
-    font-family: "IBM Plex Sans Condensed", "Arial Narrow", sans-serif;
-    font-weight: 600; font-size: 2.6rem; line-height: 1.05;
-    color: var(--teal);
-    font-variant-numeric: tabular-nums;
-  }
-  .results dd { margin: 0.35rem 0 0; color: var(--muted); font-size: 0.95rem; line-height: 1.45; }
-
-  /* ---------- What I bring ---------- */
-  .bring { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1rem; }
-  .bring > div { background: var(--sun-soft); border-radius: 18px; padding: 1.4rem 1.35rem; }
-  .bring h3 { margin-bottom: 0.4rem; }
-  .bring p { margin: 0; color: #5A4D35; }
-
-  .about { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 1.6rem 1.6rem 0.6rem; }
-  .about p { margin-top: 0; }
-
-  /* ---------- Experience ---------- */
-  .job {
-    position: relative;
-    background: var(--surface);
-    border: 1px solid var(--line);
-    border-radius: 18px;
-    padding: 1.5rem 1.6rem;
-    margin-bottom: 1.25rem;
-  }
-  .job .when {
-    display: inline-block;
-    font-size: 0.85rem; font-weight: 600;
-    background: var(--teal-soft); color: var(--teal);
-    padding: 0.2rem 0.7rem; border-radius: 999px;
-    margin-bottom: 0.75rem;
-  }
-  .job.current .when { background: var(--sun-soft); color: #7A5310; }
-  .job .meta { color: var(--muted); font-size: 0.95rem; margin: 0.2rem 0 1rem; }
-  .job ul { margin: 0; padding-left: 1.1rem; max-width: 72ch; }
-  .job li { margin-bottom: 0.55rem; }
-  .job li::marker { color: var(--teal-bright); }
-
-  /* ---------- Skills ---------- */
-  .skill-groups { display: grid; grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); gap: 1rem; }
-  .skill-groups > div { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 1.3rem 1.35rem; }
-  .skill-groups h3 { font-size: 1.05rem; margin-bottom: 0.75rem; }
-  .tags { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
-  .tags li {
-    font-size: 0.875rem;
-    background: var(--teal-soft); color: #134E47;
-    padding: 0.25rem 0.65rem; border-radius: 999px;
-  }
-
-  /* ---------- Education ---------- */
-  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 1.4rem 1.5rem; margin-bottom: 1rem; }
-  .card p { margin: 0; }
-  .status {
-    display: inline-block; background: var(--sun-soft); color: #7A5310;
-    font-size: 0.85rem; font-weight: 600;
-    padding: 0.15rem 0.6rem; border-radius: 999px; margin-left: 0.35rem;
-  }
-  .langs { list-style: none; padding: 0; margin: 0; }
-  .langs li { margin-bottom: 0.4rem; }
-
-  /* ---------- Contact ---------- */
-  .contact-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
-    gap: 1rem; margin-bottom: 1rem;
-  }
-  .contact-grid a, .contact-grid div {
-    background: var(--surface); border: 1px solid var(--line); border-radius: 18px;
-    padding: 1.1rem 1.25rem;
-    text-decoration: none; display: block;
-    transition: transform 0.15s, border-color 0.15s;
-  }
-  .contact-grid a:hover { transform: translateY(-2px); border-color: var(--teal-bright); }
-  .contact-grid .label { display: block; color: var(--muted); font-size: 0.9rem; }
-  .contact-grid .value { display: block; font-weight: 600; word-break: break-word; }
-  form { max-width: 38rem; display: grid; gap: 1rem; }
-  label { display: grid; gap: 0.35rem; font-weight: 500; font-size: 0.95rem; }
-  input, textarea {
-    font: inherit; color: var(--ink); background: var(--surface);
-    border: 1px solid var(--line); border-radius: 12px;
-    padding: 0.7rem 0.85rem; width: 100%;
-  }
-  input:focus, textarea:focus { border-color: var(--teal-bright); }
-  textarea { min-height: 8rem; resize: vertical; }
-  .form-note { font-size: 0.9rem; color: var(--muted); margin: 0; }
-
-  footer { border-top: 1px solid var(--line); padding: 1.5rem 0 2rem; color: var(--muted); font-size: 0.925rem; background: var(--surface); }
-
-  @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after { animation: none !important; transition: none !important; }
-    .intro .rise, .intro .portrait { opacity: 1; transform: none; }
-    .intro .portrait::before { transform: none; }
-  }
-  @media print {
-    .topbar, .actions, footer, form, .open, .scroll-cue, .blob { display: none; }
-    .view[hidden] { display: block; }
-    .cover { min-height: 0; background: none; }
-    body { background: #fff; font-size: 11pt; }
-  }
-</style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header class="topbar">
-  <div class="wrap">
-    <a class="brand" href="#home"><i aria-hidden="true">BH</i>Bilad Ul Haq</a>
-    <a class="cv-link" href="cv.pdf" download>Download CV</a>
-    <nav aria-label="Main">
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#contact">Contact me</a></li>
-      </ul>
+<svg class="sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+  <symbol id="i-headset" viewBox="0 0 24 24"><path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"/></symbol>
+  <symbol id="i-ticket" viewBox="0 0 24 24"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2"/><path d="M13 17v2"/><path d="M13 11v2"/></symbol>
+  <symbol id="i-monitor" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="3" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></symbol>
+  <symbol id="i-network" viewBox="0 0 24 24"><rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"/><path d="M12 12V8"/></symbol>
+  <symbol id="i-clipboard" viewBox="0 0 24 24"><rect width="8" height="4" x="8" y="2" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4"/><path d="M12 16h4"/><path d="M8 11h.01"/><path d="M8 16h.01"/></symbol>
+  <symbol id="i-box" viewBox="0 0 24 24"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></symbol>
+  <symbol id="i-terminal" viewBox="0 0 24 24"><path d="m7 11 2-2-2-2"/><path d="M11 13h4"/><rect width="18" height="18" x="3" y="3" rx="2"/></symbol>
+  <symbol id="i-code" viewBox="0 0 24 24"><path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/></symbol>
+  <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M9.94 15.5A2 2 0 0 0 8.5 14.06l-6.14-1.58a.5.5 0 0 1 0-.96L8.5 9.94A2 2 0 0 0 9.94 8.5l1.58-6.14a.5.5 0 0 1 .96 0l1.58 6.14a2 2 0 0 0 1.44 1.44l6.14 1.58a.5.5 0 0 1 0 .96l-6.14 1.58a2 2 0 0 0-1.44 1.44l-1.58 6.14a.5.5 0 0 1-.96 0Z"/><path d="M20 3v4"/><path d="M22 5h-4"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></symbol>
+  <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6Z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+  <symbol id="i-power" viewBox="0 0 24 24"><path d="M12 2v10"/><path d="M18.4 6.6a9 9 0 1 1-12.77.04"/></symbol>
+  <symbol id="i-cap" viewBox="0 0 24 24"><path d="M22 10v6"/><path d="M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></symbol>
+  <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.48 12.89 17 22l-5-3-5 3 1.52-9.11"/></symbol>
+  <symbol id="i-langs" viewBox="0 0 24 24"><path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
+  <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+  <symbol id="i-square" viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="1"/></symbol>
+  <symbol id="i-pause" viewBox="0 0 24 24"><rect x="14" y="4" width="4" height="16" rx="1"/><rect x="6" y="4" width="4" height="16" rx="1"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="M6 3l14 9-14 9V3z"/></symbol>
+</svg>
+
+<a class="skip" href="#main">Skip to content</a>
+<div class="progress" aria-hidden="true"><span></span></div>
+
+<!-- ============================== NAV ============================== -->
+<header class="nav">
+  <div class="nav__inner wrap">
+    <a class="brand" href="#hero" aria-label="Back to top">
+      <span class="brand__led" aria-hidden="true"></span>
+      <span class="brand__name">bilad<span class="brand__dot">.</span>support</span>
+    </a>
+
+    <nav class="nav__links" id="nav-links" aria-label="Main">
+      <a href="#about">About</a>
+      <a href="#impact">Impact</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#desk">Live desk</a>
+      <a href="#after-hours">After hours</a>
+      <a href="#contact">Contact</a>
     </nav>
+
+    <div class="nav__actions">
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Night shift (dark theme). Switch to day shift">
+        <svg class="i i--moon" aria-hidden="true"><use href="#i-moon"/></svg>
+        <svg class="i i--sun" aria-hidden="true"><use href="#i-sun"/></svg>
+        <span class="theme-toggle__label">Night shift</span>
+      </button>
+      <a class="btn btn--primary btn--small nav__cta" href="#contact">Open a ticket</a>
+      <button class="nav__burger" id="nav-burger" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+        <svg class="i i--menu" aria-hidden="true"><use href="#i-menu"/></svg>
+        <svg class="i i--close" aria-hidden="true"><use href="#i-x"/></svg>
+      </button>
+    </div>
   </div>
 </header>
 
-<main>
+<main id="main">
 
-  <!-- HOME -->
-  <div id="home" class="view intro">
-    <section class="cover" aria-labelledby="home-title">
-      <span class="blob a" aria-hidden="true"></span>
-      <span class="blob b" aria-hidden="true"></span>
-      <div class="wrap hero">
-        <div>
-          <div class="rise"><span class="open"><span class="dot" aria-hidden="true"></span>Open to IT support roles in Saudi Arabia</span></div>
-          <h1 id="home-title" class="rise" tabindex="-1"><span>Muhammad</span><span>Bilad Ul Haq</span></h1>
-          <p class="pitch rise">IT Support Specialist who keeps 55+ users working, tickets inside SLA and systems secure.</p>
-          <p class="where rise">3+ years in enterprise help desk and desktop support. Now on-site at Sinopec Petroleum, Riyadh. Iqama transferable.</p>
-          <div class="actions rise">
-            <a class="btn primary" href="#contact">Contact me</a>
-            <a class="btn" href="#experience">View experience</a>
+<!-- ============================== HERO ============================== -->
+<section class="hero" id="hero">
+  <canvas class="hero__canvas" id="net-canvas" aria-hidden="true"></canvas>
+
+  <div class="hero__inner wrap">
+    <div class="hero__copy">
+      <p class="hero__eyebrow mono rise" style="--d:0"><span class="hero__ok">[ OK ]</span> System online · Riyadh, Saudi Arabia</p>
+
+      <h1 class="hero__title rise" style="--d:1" aria-label="Muhammad Bilad Ul Haq">
+        <span class="hero__line" data-scramble aria-hidden="true">Muhammad</span>
+        <span class="hero__line hero__line--accent" data-scramble aria-hidden="true">Bilad Ul Haq</span>
+      </h1>
+
+      <p class="hero__role mono rise" style="--d:2">
+        <span class="sr-only">IT Support Specialist: help desk, desktop support, Microsoft 365, Active Directory and ITIL.</span>
+        <span class="hero__prompt" aria-hidden="true">&gt;</span>
+        <span id="role-text" aria-hidden="true">IT Support Specialist</span><span class="caret" aria-hidden="true"></span>
+      </p>
+
+      <p class="hero__lede rise" style="--d:3">
+        3+ years keeping enterprise users online in Saudi Arabia and Pakistan. Today I support <strong>55+ people</strong> on a security-controlled energy site in Riyadh and keep <strong>95%+ of tickets inside SLA</strong>.
+      </p>
+
+      <div class="hero__ctas rise" style="--d:4">
+        <a class="btn btn--primary magnetic" href="#contact">
+          <svg class="i" aria-hidden="true"><use href="#i-ticket"/></svg>Open a ticket
+        </a>
+        <a class="btn btn--ghost magnetic" href="cv.pdf" download="Muhammad-Bilad-Ul-Haq-CV.pdf">
+          <svg class="i" aria-hidden="true"><use href="#i-download"/></svg>Download CV
+        </a>
+      </div>
+
+      <ul class="hero__tags mono rise" style="--d:5" aria-label="Core platforms">
+        <li>Windows 10/11</li>
+        <li>Microsoft 365</li>
+        <li>Active Directory</li>
+        <li>ITIL v4</li>
+        <li>LAN/WAN</li>
+      </ul>
+    </div>
+
+    <div class="hero__aside rise" style="--d:3">
+      <aside class="tag-card" id="tag-card" aria-label="Profile summary, styled as an IT asset tag">
+        <div class="tag-card__inner">
+          <div class="tag-card__head">
+            <span class="tag-card__prop">PROPERTY OF IT SUPPORT</span>
+            <span class="ports" aria-hidden="true"><i></i><i></i><i></i><i class="off"></i><i></i><i></i><i></i><i></i></span>
+          </div>
+
+          <div class="ident">
+            <div class="scan-photo" id="scan-photo" title="Click to re-scan">
+              <img class="scan-photo__img" src="github%20dp.png" alt="Portrait of Muhammad Bilad Ul Haq" width="470" height="458" decoding="async">
+              <span class="scan-photo__pix" aria-hidden="true"><canvas class="scan-photo__pixels"></canvas></span>
+              <span class="scan-photo__line" aria-hidden="true"></span>
+              <span class="scan-photo__face" aria-hidden="true"><i></i><i></i><i></i><i></i><b class="scan-photo__tag">MATCH 99.8%</b></span>
+            </div>
+            <div class="ident__info">
+              <p class="ident__kicker">Authorized personnel</p>
+              <p class="ident__name">Bilad Ul Haq</p>
+              <p class="ident__role">IT Support Specialist</p>
+              <p class="ident__match mono">Face match <b><span id="face-match">99.8</span>%</b></p>
+              <span class="ident__access ident__access--ok" id="ident-access"><i aria-hidden="true"></i><span>Access granted</span></span>
+            </div>
+          </div>
+
+          <dl class="tag-card__rows">
+            <div><dt>Asset ID</dt><dd class="mono">BLD-2022-001</dd></div>
+            <div><dt>Location</dt><dd>Riyadh, KSA <span class="tag-card__time mono"><span id="riyadh-time">--:--:--</span> AST</span></dd></div>
+            <div><dt>In service</dt><dd>Since Dec 2022</dd></div>
+            <div><dt>Uptime</dt><dd class="mono" id="uptime">3y 10m</dd></div>
+            <div><dt>SLA</dt><dd><span class="meter" aria-hidden="true"><span class="meter__fill" style="--v:.95"></span></span><span class="mono">95%+</span></dd></div>
+            <div><dt>Status</dt><dd><span class="status"><i aria-hidden="true"></i>In service</span></dd></div>
+            <div><dt>Update</dt><dd>CompTIA Network+ <span class="installing" aria-label="installing"></span></dd></div>
+          </dl>
+
+          <div class="tag-card__barcode">
+            <span class="barcode" id="barcode" data-code="BLD-2022-001" aria-hidden="true"></span>
+            <span class="tag-card__code">*BLD-2022-001*</span>
           </div>
         </div>
-
-        <figure class="portrait">
-          <div class="frame">
-            <span class="monogram" aria-hidden="true">BH</span>
-            <img src="photo.jpg" alt="Photo of Muhammad Bilad Ul Haq" onerror="this.remove()">
-          </div>
-          <figcaption><strong>IT Support Specialist</strong>EFFC at Sinopec, Riyadh</figcaption>
-        </figure>
-      </div>
-      <button class="scroll-cue" type="button" id="scroll-cue">
-        See my results
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
-      </button>
-    </section>
-
-    <div class="wrap page">
-      <h2 id="results-title" class="subhead" style="margin-top:0">Results I've delivered</h2>
-      <dl class="results">
-        <div><dt><span class="count" data-to="95">95</span>%+</dt><dd>SLA compliance on incidents and service requests</dd></div>
-        <div><dt><span class="count" data-to="90">90</span> min</dt><dd>New device setup, down from about 4 hours</dd></div>
-        <div><dt><span class="count" data-to="30">30</span>%</dt><dd>Fewer repeat tickets after writing 15+ SOPs</dd></div>
-        <div><dt><span class="count" data-to="150">150</span>+</dt><dd>IT assets tracked with 100% audit accuracy</dd></div>
-      </dl>
-
-      <h2 class="subhead">What I bring to your team</h2>
-      <div class="bring">
-        <div>
-          <h3>Fast, reliable fixes</h3>
-          <p>Tier 1 and Tier 2 support across Windows, Microsoft 365, printers and networks, logged and closed within SLA under ITIL.</p>
-        </div>
-        <div>
-          <h3>Fewer repeat problems</h3>
-          <p>I find the root cause, fix it for good, and write the SOPs and knowledge base articles so the team handles it next time.</p>
-        </div>
-        <div>
-          <h3>Security-minded</h3>
-          <p>Daily work on a security-controlled energy site: Active Directory, MFA, access control and data confidentiality.</p>
-        </div>
-      </div>
-
-      <h2 class="subhead">About me</h2>
-      <div class="about">
-        <p>I started in IT support at Abacus Consulting in Pakistan, supporting 130+ users, and moved to Riyadh in 2025 to support a multinational energy site for Sinopec Petroleum through EFFC. There I look after 55+ users, supervise 2 support staff and report weekly to senior management.</p>
-        <p>I hold a BSc in Information Technology (Networking and Programming) from the University of the Punjab, and I'm preparing for CompTIA Network+. I speak English, Urdu and conversational Arabic, so I can support Arabic-speaking users too.</p>
-      </div>
+      </aside>
     </div>
   </div>
 
-  <!-- EXPERIENCE -->
-  <section id="experience" class="view wrap page" aria-labelledby="exp-title">
-    <h2 id="exp-title" tabindex="-1">Experience</h2>
+  <a class="hero__scroll" href="#about"><span class="sr-only">Scroll to About</span><b aria-hidden="true">scroll</b><i aria-hidden="true"></i></a>
+</section>
 
-    <article class="job current">
-      <span class="when">Jan 2025 to present</span>
-      <h3>IT Support Specialist, EFFC (on-site at Sinopec Petroleum Branch)</h3>
-      <p class="meta">Riyadh, Saudi Arabia</p>
-      <ul>
-        <li>Resolve 15+ incidents and service requests per week for 55+ end users on a security-controlled energy site, keeping SLA compliance above 95% by logging, prioritizing and closing every ticket in the ITSM system under ITIL incident and request management.</li>
-        <li>Cut new-device setup time from about 4 hours to under 90 minutes across 60+ Windows 10/11 desktops and laptops by building a standard configuration checklist and a bulk software deployment process.</li>
-        <li>Complete 100% of joiner, mover and leaver requests within one business day by administering Active Directory (user provisioning, password resets, group policy, access control) in line with corporate security policy.</li>
-        <li>Reclaimed 10+ unused Microsoft 365 licenses across two quarterly reconciliations by checking assignments against active users; manage Exchange Online mailboxes, Teams and OneDrive access for the site.</li>
-        <li>Restore connectivity for network incidents in under 1 hour on average by diagnosing LAN/WAN, DNS/DHCP, Wi-Fi, VPN, switch and router faults independently.</li>
-        <li>Achieved 100% record accuracy on two periodic asset audits by maintaining the register for 150+ hardware and software assets, and close every license compliance risk found in quarterly reviews.</li>
-        <li>Reduced repeat tickets for common issues by about 30% by writing 15+ SOPs and knowledge base articles and running knowledge-transfer sessions for project teams and new IT staff.</li>
-        <li>Supervise 2 IT support staff, send weekly reports to senior management on ticket volumes, risks and rollout progress, and coordinate with vendors on procurement, repairs and warranty claims, all within site industrial security and data confidentiality rules.</li>
+<!-- ============================== MARQUEE ============================== -->
+<div class="marquee" aria-label="Tools and technologies I work with">
+  <div class="marquee__row">
+    <ul class="marquee__track">
+      <li>Windows 10/11</li><li>Windows Server</li><li>Active Directory</li><li>Group Policy</li><li>Microsoft 365</li><li>Exchange Online</li><li>Teams</li><li>SharePoint</li><li>OneDrive</li><li>Intune</li><li>BitLocker</li><li>Hyper-V</li><li>VMware</li>
+    </ul>
+  </div>
+  <div class="marquee__row marquee__row--rev">
+    <ul class="marquee__track">
+      <li>ServiceNow</li><li>Jira Service Management</li><li>ITIL v4</li><li>PowerShell</li><li>TCP/IP</li><li>DNS</li><li>DHCP</li><li>LAN/WAN</li><li>VPN</li><li>Wi-Fi</li><li>MFA</li><li>RDP</li><li>TeamViewer</li><li>AnyDesk</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ============================== ABOUT ============================== -->
+<section class="section" id="about">
+  <div class="wrap">
+    <header class="section__head">
+      <p class="eyebrow" data-type>PS&gt; whoami</p>
+      <h2 class="section__title">I keep people working.</h2>
+    </header>
+
+    <div class="about">
+      <div class="about__text reveal">
+        <p class="lead">I'm the person people call when Outlook won't open, the VPN drops, or a new joiner needs a laptop and an account by tomorrow.</p>
+        <p>I have 3+ years of on-site help desk and desktop support in enterprise environments in Saudi Arabia and Pakistan. Today I support 55+ users at Sinopec Petroleum's Riyadh branch through EFFC, a security-controlled energy site. The work spans Windows 10/11, Microsoft 365, Active Directory, LAN/WAN networking and the full IT asset lifecycle.</p>
+        <p>I resolve Tier 1 and Tier 2 incidents within SLA using ITIL practices, supervise two IT support staff, and write the SOPs and knowledge base articles that stop the same tickets from coming back.</p>
+
+        <dl class="facts">
+          <div><dt>Based in</dt><dd>Riyadh, Saudi Arabia</dd></div>
+          <div><dt>Iqama</dt><dd>Transferable</dd></div>
+          <div><dt>Degree</dt><dd>BSc Information Technology</dd></div>
+          <div><dt>Studying for</dt><dd>CompTIA Network+</dd></div>
+          <div><dt>Languages</dt><dd>English, Urdu, Arabic</dd></div>
+          <div><dt>Team</dt><dd>Supervises 2 IT support staff</dd></div>
+        </dl>
+      </div>
+
+      <div class="terminal reveal" id="terminal" style="--d:1">
+        <div class="terminal__bar">
+          <span class="terminal__title"><svg class="i" aria-hidden="true"><use href="#i-terminal"/></svg><span>Windows PowerShell · visitor@bilad</span></span>
+          <span class="terminal__ctrls">
+            <button type="button" data-win="min" aria-label="Minimize terminal"><svg class="i" aria-hidden="true"><use href="#i-minus"/></svg></button>
+            <button type="button" data-win="max" aria-label="Maximize terminal"><svg class="i" aria-hidden="true"><use href="#i-square"/></svg></button>
+            <button type="button" data-win="close" class="is-close" aria-label="Close terminal"><svg class="i" aria-hidden="true"><use href="#i-x"/></svg></button>
+          </span>
+        </div>
+        <div class="terminal__body" id="term-body">
+          <div class="term-out" id="term-out" role="log" aria-live="polite">
+            <div class="term-row t-dim">Windows PowerShell
+Copyright (C) Muhammad Bilad Ul Haq. All rights reserved.
+
+Type <span class="t-y">help</span> to see what this terminal can do.</div>
+          </div>
+          <form class="term-line" id="term-form" autocomplete="off">
+            <label class="term-prompt" for="term-input">PS<span class="term-prompt__path"> C:\Users\visitor</span>&gt;</label>
+            <input class="term-input" id="term-input" type="text" spellcheck="false" autocapitalize="off" autocorrect="off" enterkeyhint="go">
+          </form>
+        </div>
+        <div class="terminal__chips" aria-label="Try a command">
+          <button type="button" data-cmd="help">help</button>
+          <button type="button" data-cmd="Get-Skills">Get-Skills</button>
+          <button type="button" data-cmd="Test-Connection bilad">Test-Connection bilad</button>
+          <button type="button" data-cmd="neofetch">neofetch</button>
+          <button type="button" data-cmd="ipconfig">ipconfig</button>
+          <button type="button" data-cmd="hire">hire</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== IMPACT ============================== -->
+<section class="section section--alt" id="impact">
+  <div class="wrap">
+    <header class="section__head">
+      <p class="eyebrow" data-type>PS&gt; Get-Metrics | Format-Table</p>
+      <h2 class="section__title">Results from the ticket queue</h2>
+      <p class="section__sub">Measured outcomes from two on-site help desk roles.</p>
+    </header>
+
+    <div class="stats">
+      <article class="stat stat--wide spotlight reveal" style="--d:0">
+        <p class="stat__label">SLA compliance at EFFC</p>
+        <p class="stat__value"><span data-count="95">95</span><small>%+</small></p>
+        <span class="meter meter--lg" aria-hidden="true"><span class="meter__fill" style="--v:.95"></span></span>
+        <p class="stat__note">On 15+ incidents and service requests a week, logged and closed under ITIL. 92% at Abacus Consulting before that.</p>
+      </article>
+      <article class="stat spotlight reveal" style="--d:1">
+        <p class="stat__label">Users supported in Riyadh</p>
+        <p class="stat__value"><span data-count="55">55</span><small>+</small></p>
+        <p class="stat__note">On a security-controlled energy site.</p>
+      </article>
+      <article class="stat spotlight reveal" style="--d:2">
+        <p class="stat__label">Users supported at Abacus</p>
+        <p class="stat__value"><span data-count="130">130</span><small>+</small></p>
+        <p class="stat__note">With 30+ tickets resolved every week.</p>
+      </article>
+
+      <article class="stat stat--wide spotlight reveal" style="--d:0">
+        <p class="stat__label">New-device setup time</p>
+        <p class="stat__value">&lt;<span data-count="90">90</span><small>min</small></p>
+        <div class="bars" role="img" aria-label="Setup time cut from about 4 hours to under 90 minutes">
+          <div class="bars__row"><span>Before</span><span class="bars__track"><span class="bars__fill bars__fill--before" style="--v:1"></span></span><span class="bars__val">~4 h</span></div>
+          <div class="bars__row"><span>Now</span><span class="bars__track"><span class="bars__fill" style="--v:.375"></span></span><span class="bars__val">&lt;90 min</span></div>
+        </div>
+        <p class="stat__note">Across 60+ Windows 10/11 machines, using a standard configuration checklist and bulk software deployment.</p>
+      </article>
+      <article class="stat spotlight reveal" style="--d:1">
+        <p class="stat__label">First-contact resolution</p>
+        <p class="stat__value"><span data-count="70">70</span><small>%+</small></p>
+        <span class="meter" aria-hidden="true"><span class="meter__fill" style="--v:.7"></span></span>
+        <p class="stat__note">At the desk, by phone and over remote desktop.</p>
+      </article>
+      <article class="stat spotlight reveal" style="--d:2">
+        <p class="stat__label">Fewer repeat tickets</p>
+        <p class="stat__value">~<span data-count="30">30</span><small>%</small></p>
+        <p class="stat__note">After writing 15+ SOPs and knowledge base articles.</p>
+      </article>
+
+      <article class="stat spotlight reveal" style="--d:0">
+        <p class="stat__label">Assets in the register</p>
+        <p class="stat__value"><span data-count="150">150</span><small>+</small></p>
+        <p class="stat__note">100% record accuracy on two audits.</p>
+      </article>
+      <article class="stat spotlight reveal" style="--d:1">
+        <p class="stat__label">Microsoft 365 licenses reclaimed</p>
+        <p class="stat__value"><span data-count="10">10</span><small>+</small></p>
+        <p class="stat__note">Across two quarterly reconciliations.</p>
+      </article>
+      <article class="stat spotlight reveal" style="--d:2">
+        <p class="stat__label">Active Directory requests a month</p>
+        <p class="stat__value"><span data-count="50">50</span><small>+</small></p>
+        <p class="stat__note">Provisioning, resets, groups and access changes.</p>
+      </article>
+      <article class="stat spotlight reveal" style="--d:3">
+        <p class="stat__label">Joiner, mover, leaver turnaround</p>
+        <p class="stat__value"><span data-count="1">1</span><small>day</small></p>
+        <p class="stat__note">100% completed within one business day.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== SKILLS ============================== -->
+<section class="section" id="skills">
+  <div class="wrap">
+    <header class="section__head">
+      <p class="eyebrow" data-type>PS&gt; Get-Skills</p>
+      <h2 class="section__title">The toolkit I bring to the service desk</h2>
+    </header>
+
+    <div class="skills">
+      <article class="skill-card spotlight reveal" style="--d:0">
+        <header class="skill-card__head">
+          <span class="skill-card__icon"><svg class="i" aria-hidden="true"><use href="#i-headset"/></svg></span>
+          <h3>Help desk &amp; desktop support</h3>
+          <span class="skill-card__count"><span class="led" aria-hidden="true"></span><span data-chip-count>9</span></span>
+        </header>
+        <ul class="chips">
+          <li>Tier 1 / Tier 2 support</li><li>Service desk operations</li><li>End-user support</li><li>Deskside &amp; remote support</li><li>RDP, TeamViewer, AnyDesk</li><li>Hardware &amp; software troubleshooting</li><li>Printers &amp; peripherals</li><li>User onboarding &amp; training</li><li>Customer service</li>
+        </ul>
+      </article>
+
+      <article class="skill-card skill-card--wide spotlight reveal" style="--d:1">
+        <header class="skill-card__head">
+          <span class="skill-card__icon"><svg class="i" aria-hidden="true"><use href="#i-monitor"/></svg></span>
+          <h3>Microsoft &amp; endpoints</h3>
+          <span class="skill-card__count"><span class="led" aria-hidden="true"></span><span data-chip-count>15</span></span>
+        </header>
+        <ul class="chips">
+          <li>Windows 10/11</li><li>Windows Server</li><li>Active Directory (ADUC)</li><li>Group Policy (GPO)</li><li>Microsoft 365 admin center</li><li>Exchange Online</li><li>Teams</li><li>SharePoint</li><li>OneDrive</li><li>Intune (basic)</li><li>Imaging &amp; deployment</li><li>Bulk software deployment</li><li>BitLocker</li><li>Hyper-V</li><li>VMware</li>
+        </ul>
+      </article>
+
+      <article class="skill-card skill-card--wide spotlight reveal" style="--d:0">
+        <header class="skill-card__head">
+          <span class="skill-card__icon"><svg class="i" aria-hidden="true"><use href="#i-network"/></svg></span>
+          <h3>Networking &amp; security</h3>
+          <span class="skill-card__count"><span class="led" aria-hidden="true"></span><span data-chip-count>14</span></span>
+        </header>
+        <ul class="chips">
+          <li>TCP/IP</li><li>DNS</li><li>DHCP</li><li>LAN/WAN</li><li>Wi-Fi</li><li>VPN</li><li>Routing &amp; switching</li><li>Proxy server</li><li>Network troubleshooting</li><li>Access control</li><li>MFA</li><li>Endpoint security &amp; antivirus</li><li>Patch management</li><li>Data confidentiality</li>
+        </ul>
+      </article>
+
+      <article class="skill-card spotlight reveal" style="--d:1">
+        <header class="skill-card__head">
+          <span class="skill-card__icon"><svg class="i" aria-hidden="true"><use href="#i-clipboard"/></svg></span>
+          <h3>ITSM &amp; ITIL</h3>
+          <span class="skill-card__count"><span class="led" aria-hidden="true"></span><span data-chip-count>9</span></span>
+        </header>
+        <ul class="chips">
+          <li>ITIL v4 practices</li><li>Incident, problem &amp; change</li><li>Service requests</li><li>ServiceNow</li><li>Jira Service Management</li><li>SLA management</li><li>Triage &amp; escalation</li><li>Root cause analysis</li><li>KB articles &amp; SOPs</li>
+        </ul>
+      </article>
+
+      <article class="skill-card spotlight reveal" style="--d:0">
+        <header class="skill-card__head">
+          <span class="skill-card__icon"><svg class="i" aria-hidden="true"><use href="#i-terminal"/></svg></span>
+          <h3>Scripting &amp; documentation</h3>
+          <span class="skill-card__count"><span class="led" aria-hidden="true"></span><span data-chip-count>4</span></span>
+        </header>
+        <ul class="chips">
+          <li>PowerShell</li><li>CMD &amp; batch scripting</li><li>Technical documentation</li><li>Reporting to management</li>
+        </ul>
+        <pre class="mini-code" aria-label="Example PowerShell commands"><span class="t-dim">PS&gt;</span> <span class="t-y">Unlock-ADAccount</span> <span class="t-dim">-Identity</span> jdoe
+<span class="t-dim">PS&gt;</span> <span class="t-y">gpupdate</span> /force
+<span class="t-g">User Policy update has completed successfully.</span></pre>
+      </article>
+
+      <article class="skill-card skill-card--wide spotlight reveal" style="--d:1">
+        <header class="skill-card__head">
+          <span class="skill-card__icon"><svg class="i" aria-hidden="true"><use href="#i-box"/></svg></span>
+          <h3>IT asset &amp; license management</h3>
+          <span class="skill-card__count"><span class="led" aria-hidden="true"></span><span data-chip-count>6</span></span>
+        </header>
+        <ul class="chips">
+          <li>Asset lifecycle, procurement to retirement</li><li>Asset tagging &amp; inventory</li><li>Software asset management (SAM)</li><li>License compliance</li><li>Microsoft 365 licensing</li><li>Vendor &amp; procurement coordination</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== EXPERIENCE ============================== -->
+<section class="section section--alt" id="experience">
+  <div class="wrap">
+    <header class="section__head">
+      <p class="eyebrow" data-type>PS&gt; Get-History</p>
+      <h2 class="section__title">Where I've worked</h2>
+    </header>
+
+    <div class="timeline">
+      <span class="timeline__rail" aria-hidden="true"><span class="timeline__fill"></span></span>
+      <ol class="jobs">
+        <li class="job job--current reveal">
+          <span class="job__node" aria-hidden="true"></span>
+          <article class="job__card">
+            <header class="job__head">
+              <div>
+                <p class="job__dates mono">Jan 2025 – Present · <span data-from="2025-01">1 yr 10 mos</span></p>
+                <h3 class="job__role">IT Support Specialist</h3>
+                <p class="job__org">EFFC <span>· on-site at Sinopec Petroleum Branch</span></p>
+              </div>
+              <div class="job__meta">
+                <span class="status"><i aria-hidden="true"></i>Current role</span>
+                <span class="job__place mono">Riyadh, Saudi Arabia</span>
+              </div>
+            </header>
+            <ul class="job__kpis mono" aria-label="Key numbers">
+              <li><b>55+</b> users</li><li><b>95%+</b> SLA</li><li><b>60+</b> devices deployed</li><li><b>150+</b> assets</li><li><b>2</b> staff supervised</li>
+            </ul>
+            <ul class="job__list">
+              <li>Resolve 15+ incidents and service requests a week for 55+ users on a security-controlled energy site, keeping SLA compliance above 95% under ITIL incident and request management.</li>
+              <li>Cut new-device setup from about 4 hours to under 90 minutes across 60+ Windows 10/11 desktops and laptops with a standard configuration checklist and bulk software deployment.</li>
+              <li>Complete 100% of joiner, mover and leaver requests within one business day through Active Directory: provisioning, password resets, group policy and access control.</li>
+              <li>Reclaimed 10+ unused Microsoft 365 licenses across two quarterly reconciliations, and manage Exchange Online mailboxes, Teams and OneDrive access for the site.</li>
+              <li>Restore connectivity for network incidents in under 1 hour on average across LAN/WAN, DNS/DHCP, Wi-Fi, VPN, switches and routers.</li>
+              <li>Achieved 100% record accuracy on two asset audits by maintaining the register for 150+ hardware and software assets.</li>
+              <li>Reduced repeat tickets by about 30% by writing 15+ SOPs and knowledge base articles and running knowledge-transfer sessions.</li>
+              <li>Supervise 2 IT support staff, report weekly to senior management, and coordinate vendors on procurement, repairs and warranty claims.</li>
+            </ul>
+          </article>
+        </li>
+
+        <li class="job reveal">
+          <span class="job__node" aria-hidden="true"></span>
+          <article class="job__card">
+            <header class="job__head">
+              <div>
+                <p class="job__dates mono">Dec 2022 – Jan 2025 · <span data-from="2022-12" data-to="2025-01">2 yrs 2 mos</span></p>
+                <h3 class="job__role">IT Support, Tier 1</h3>
+                <p class="job__org">Abacus Consulting International Organization</p>
+              </div>
+              <div class="job__meta">
+                <span class="job__place mono">Pakistan · on-site</span>
+              </div>
+            </header>
+            <ul class="job__kpis mono" aria-label="Key numbers">
+              <li><b>130+</b> users</li><li><b>30+</b> tickets a week</li><li><b>92%</b> SLA</li><li><b>70%+</b> first-contact fix</li><li><b>98%</b> inventory accuracy</li>
+            </ul>
+            <ul class="job__list">
+              <li>Resolved 30+ tickets a week for 130+ on-site users across hardware, software, printers, peripherals and business applications, meeting SLA on 92% of incidents.</li>
+              <li>Reached first-contact resolution above 70% on Windows 10/11, Microsoft 365, printer, VPN and login issues at the desk, by phone and through remote desktop tools.</li>
+              <li>Onboarded new users within one business day: Microsoft 365 accounts, licenses, mailboxes, device setup, first login and MFA.</li>
+              <li>Handled 50+ Active Directory requests a month and enforced software usage policy through domain and proxy server configuration.</li>
+              <li>Installed and configured software on 130+ desktops and laptops, reaching 98% inventory accuracy at the annual audit.</li>
+              <li>Cut repeat incidents by about 20% through root cause analysis and permanent fixes, escalating Tier 2/3 issues with complete diagnostic notes.</li>
+              <li>Kept office LAN/WAN connectivity stable by troubleshooting routers, switches and network configuration.</li>
+            </ul>
+          </article>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== LIVE DESK ============================== -->
+<section class="section" id="desk">
+  <div class="wrap">
+    <header class="section__head">
+      <p class="eyebrow" data-type>PS&gt; Get-Content .\helpdesk.log -Wait</p>
+      <h2 class="section__title">A shift at the service desk</h2>
+      <p class="section__sub">A live simulation of the tickets I handle every day. Press <b>Assist</b> on any open ticket to help clear the queue.</p>
+    </header>
+
+    <div class="desk reveal">
+      <div class="desk__board">
+        <div class="desk__bar">
+          <span class="live-dot" aria-hidden="true"></span>
+          <span class="desk__name mono">Service desk queue</span>
+          <span class="desk__sim mono">Simulation</span>
+          <button class="desk__pause" id="desk-pause" type="button" aria-pressed="false">
+            <svg class="i i--pause" aria-hidden="true"><use href="#i-pause"/></svg>
+            <svg class="i i--play" aria-hidden="true"><use href="#i-play"/></svg>
+            <span>Pause</span>
+          </button>
+        </div>
+        <div class="desk__cols mono" aria-hidden="true"><span>Number</span><span>Short description</span><span>Priority</span><span>State</span></div>
+        <ul class="tickets" id="tickets" aria-label="Simulated ticket queue"></ul>
+        <p class="desk__note">Example tickets based on real day-to-day work. No real user data.</p>
+      </div>
+
+      <aside class="desk__side" aria-label="Queue statistics">
+        <div class="desk-stat"><p class="desk-stat__label">Resolved this visit</p><p class="desk-stat__value" id="d-resolved">0</p></div>
+        <div class="desk-stat"><p class="desk-stat__label">Open now</p><p class="desk-stat__value" id="d-open">0</p></div>
+        <div class="desk-stat"><p class="desk-stat__label">Avg. time to resolve</p><p class="desk-stat__value" id="d-avg">--</p></div>
+        <div class="desk-stat desk-stat--you">
+          <p class="desk-stat__label">Your assists</p>
+          <p class="desk-stat__value" id="d-you">0</p>
+          <p class="desk-stat__msg" id="d-msg" aria-live="polite">Press Assist on any open ticket.</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== AFTER HOURS ============================== -->
+<section class="section section--alt" id="after-hours">
+  <div class="wrap">
+    <header class="section__head">
+      <p class="eyebrow" data-type>PS&gt; Get-Hobbies</p>
+      <h2 class="section__title">After hours, I build websites and explore AI</h2>
+      <p class="section__sub">When the queue goes quiet, I keep building. These are the two side interests I keep coming back to.</p>
+    </header>
+
+    <div class="hobbies">
+      <article class="hobby reveal" style="--d:0">
+        <div class="hobby__demo builder" aria-hidden="true">
+          <div class="builder__code" id="builder-code"></div>
+          <div class="builder__preview" id="builder-preview">
+            <div class="bp-browser"><i></i><i></i><i></i><span>localhost/my-site</span></div>
+            <div class="bp-page">
+              <div class="bp bp--nav" data-step="1"><b></b><span></span><span></span><span></span></div>
+              <div class="bp bp--title" data-step="2"><span></span><span></span></div>
+              <div class="bp bp--btn" data-step="3"></div>
+              <div class="bp bp--cards" data-step="4"><span></span><span></span><span></span></div>
+              <div class="bp bp--foot" data-step="5"></div>
+            </div>
+          </div>
+        </div>
+        <div class="hobby__text">
+          <h3 class="hobby__title"><svg class="i" aria-hidden="true"><use href="#i-code"/></svg>I build websites</h3>
+          <p>Building websites is my favourite way to switch off after a shift. I enjoy taking an idea from an empty folder to a finished page that works on any screen, with clean layouts and animation that feels right.</p>
+          <ul class="chips">
+            <li>HTML</li><li>CSS</li><li>JavaScript</li><li>Responsive design</li><li>Animation</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="hobby reveal" style="--d:1">
+        <div class="hobby__demo chat" aria-hidden="true">
+          <div class="chat__bar"><svg class="i" aria-hidden="true"><use href="#i-sparkles"/></svg>AI assistant · example prompts</div>
+          <div class="chat__log" id="chat-log"></div>
+        </div>
+        <div class="hobby__text">
+          <h3 class="hobby__title"><svg class="i" aria-hidden="true"><use href="#i-sparkles"/></svg>I explore AI</h3>
+          <p>I like testing new AI tools to see where they genuinely help in IT work: explaining error messages, drafting SOPs and knowledge base articles, and getting a PowerShell script started faster. Every answer gets checked before it goes near a live system.</p>
+          <ul class="chips">
+            <li>Prompting</li><li>AI-assisted scripting</li><li>Drafting docs &amp; SOPs</li><li>Troubleshooting help</li><li>Trying new tools</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== CREDENTIALS ============================== -->
+<section class="section" id="credentials">
+  <div class="wrap">
+    <header class="section__head">
+      <p class="eyebrow" data-type>PS&gt; Get-Credential</p>
+      <h2 class="section__title">Education, certification and languages</h2>
+    </header>
+
+    <div class="creds">
+      <article class="cred reveal" style="--d:0">
+        <span class="cred__icon"><svg class="i" aria-hidden="true"><use href="#i-cap"/></svg></span>
+        <p class="cred__kicker">Degree</p>
+        <h3>Bachelor of Science in Information Technology</h3>
+        <p>University of the Punjab, Pakistan</p>
+        <p class="cred__meta mono">Major: Networking and Programming</p>
+      </article>
+
+      <article class="cred reveal" style="--d:1">
+        <span class="cred__icon"><svg class="i" aria-hidden="true"><use href="#i-award"/></svg></span>
+        <p class="cred__kicker">Certification · in progress</p>
+        <h3>CompTIA Network+ (N10-009)</h3>
+        <div class="install">
+          <p class="install__label"><span>Installing update</span><span>Preparing for the exam</span></p>
+          <span class="install__bar" aria-hidden="true"></span>
+        </div>
+        <ol class="domains" aria-label="Exam domains">
+          <li><b>1.0</b>Networking concepts</li>
+          <li><b>2.0</b>Network implementation</li>
+          <li><b>3.0</b>Network operations</li>
+          <li><b>4.0</b>Network security</li>
+          <li><b>5.0</b>Network troubleshooting</li>
+        </ol>
+      </article>
+
+      <article class="cred cred--lang reveal" style="--d:2">
+        <span class="cred__icon"><svg class="i" aria-hidden="true"><use href="#i-langs"/></svg></span>
+        <p class="cred__kicker">Languages · signal strength</p>
+        <ul class="langs">
+          <li>
+            <span class="langs__name">English</span>
+            <span class="langs__lvl">Professional working proficiency</span>
+            <span class="signal" data-level="4" role="img" aria-label="4 of 5 bars"><i></i><i></i><i></i><i></i><i></i></span>
+          </li>
+          <li>
+            <span class="langs__name">Urdu</span>
+            <span class="langs__lvl">Native</span>
+            <span class="signal" data-level="5" role="img" aria-label="5 of 5 bars"><i></i><i></i><i></i><i></i><i></i></span>
+          </li>
+          <li>
+            <span class="langs__name">Arabic</span>
+            <span class="langs__lvl">Conversational, able to support Arabic-speaking users</span>
+            <span class="signal" data-level="3" role="img" aria-label="3 of 5 bars"><i></i><i></i><i></i><i></i><i></i></span>
+          </li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== CONTACT ============================== -->
+<section class="section section--contact" id="contact">
+  <div class="wrap contact">
+    <div class="contact__intro">
+      <p class="eyebrow" data-type>PS&gt; New-Ticket -Priority High</p>
+      <h2 class="section__title">Open a ticket with me</h2>
+      <p class="section__sub">Hiring for IT support in Riyadh or elsewhere in Saudi Arabia? My Iqama is transferable and I'm open to new opportunities. Fill in the ticket or reach me directly.</p>
+
+      <ul class="contact-list">
+        <li class="contact-item">
+          <span class="contact-item__icon"><svg class="i" aria-hidden="true"><use href="#i-mail"/></svg></span>
+          <div class="contact-item__body"><p class="contact-item__label">Email</p><a href="mailto:bilad900@gmail.com">bilad900@gmail.com</a></div>
+          <button class="icon-btn" type="button" data-copy="bilad900@gmail.com" aria-label="Copy email address"><svg class="i" aria-hidden="true"><use href="#i-copy"/></svg></button>
+        </li>
+        <li class="contact-item">
+          <span class="contact-item__icon"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg></span>
+          <div class="contact-item__body"><p class="contact-item__label">Phone</p><a href="tel:+966562775409">+966 56 277 5409</a></div>
+          <button class="icon-btn" type="button" data-copy="+966562775409" aria-label="Copy phone number"><svg class="i" aria-hidden="true"><use href="#i-copy"/></svg></button>
+        </li>
+        <li class="contact-item">
+          <span class="contact-item__icon"><svg class="i" aria-hidden="true"><use href="#i-linkedin"/></svg></span>
+          <div class="contact-item__body"><p class="contact-item__label">LinkedIn</p><a href="https://www.linkedin.com/in/bilad-ul-haq-8737a3341" target="_blank" rel="noopener">linkedin.com/in/bilad-ul-haq</a></div>
+        </li>
+        <li class="contact-item">
+          <span class="contact-item__icon"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg></span>
+          <div class="contact-item__body"><p class="contact-item__label">Location</p><p class="contact-item__value">Riyadh, Saudi Arabia · Iqama transferable</p></div>
+        </li>
       </ul>
-    </article>
-
-    <article class="job">
-      <span class="when">Dec 2022 to Jan 2025</span>
-      <h3>IT Support, Tier 1, Abacus Consulting International Organization</h3>
-      <p class="meta">Pakistan (on-site)</p>
-      <ul>
-        <li>Resolved 30+ tickets per week for 130+ on-site users covering hardware, software, printers, peripherals and business applications, meeting SLA targets on 92% of incidents under ITIL practices.</li>
-        <li>Reached a first-contact resolution rate above 70% by troubleshooting Windows 10/11, Microsoft 365 (Outlook, Teams, OneDrive), printers, VPN and login issues at the desk, over the phone and through remote desktop tools.</li>
-        <li>Onboarded new users within one business day by creating Microsoft 365 accounts, assigning licenses, configuring mailboxes and setting up their devices, including first login and MFA.</li>
-        <li>Handled 50+ Active Directory requests per month and enforced software usage policy through domain and proxy server configuration.</li>
-        <li>Installed, configured and tested business and productivity software on 130+ desktops and laptops, reaching 98% inventory accuracy at the annual audit.</li>
-        <li>Cut repeat incidents for recurring application and performance problems by about 20% through root cause analysis and permanent fixes, and escalated Tier 2/3 issues with complete diagnostic notes.</li>
-        <li>Kept office LAN/WAN connectivity stable by troubleshooting routers, switches and network configuration issues.</li>
-      </ul>
-    </article>
-  </section>
-
-  <!-- SKILLS -->
-  <section id="skills" class="view wrap page" aria-labelledby="skills-title">
-    <h2 id="skills-title" tabindex="-1">Skills</h2>
-    <div class="skill-groups">
-      <div><h3>Help desk and desktop support</h3><ul class="tags"><li>Tier 1 / Tier 2 support</li><li>Service desk operations</li><li>Deskside and remote support</li><li>RDP, TeamViewer, AnyDesk</li><li>Hardware and software troubleshooting</li><li>Printers and peripherals</li><li>User onboarding and training</li><li>Customer service</li></ul></div>
-      <div><h3>ITSM and ITIL</h3><ul class="tags"><li>ITIL v4</li><li>Incident management</li><li>Problem management</li><li>Change management</li><li>Service requests</li><li>ServiceNow</li><li>Jira Service Management</li><li>SLA management</li><li>Root cause analysis</li><li>KB articles and SOPs</li></ul></div>
-      <div><h3>Microsoft and endpoints</h3><ul class="tags"><li>Windows 10/11</li><li>Windows Server</li><li>Active Directory</li><li>Group Policy</li><li>Microsoft 365 Admin</li><li>Exchange Online</li><li>Teams</li><li>SharePoint</li><li>OneDrive</li><li>Intune (basic)</li><li>Imaging and deployment</li><li>BitLocker</li><li>Hyper-V</li><li>VMware</li></ul></div>
-      <div><h3>Networking and security</h3><ul class="tags"><li>TCP/IP</li><li>DNS</li><li>DHCP</li><li>LAN/WAN</li><li>Wi-Fi</li><li>VPN</li><li>Routing and switching</li><li>Proxy server</li><li>Access control</li><li>MFA</li><li>Endpoint security</li><li>Patch management</li></ul></div>
-      <div><h3>Asset and license management</h3><ul class="tags"><li>IT asset lifecycle</li><li>Asset tagging and inventory</li><li>Software asset management</li><li>License compliance</li><li>Microsoft 365 licensing</li><li>Vendor coordination</li></ul></div>
-      <div><h3>Scripting and documentation</h3><ul class="tags"><li>PowerShell</li><li>CMD / batch scripting</li><li>Technical documentation</li><li>Management reporting</li></ul></div>
-    </div>
-  </section>
-
-  <!-- EDUCATION -->
-  <section id="education" class="view wrap page" aria-labelledby="edu-title">
-    <h2 id="edu-title" tabindex="-1">Education and certifications</h2>
-    <div class="card">
-      <p><strong>BSc Information Technology</strong>, University of the Punjab, Pakistan</p>
-      <p class="muted">Major: Networking and Programming</p>
-    </div>
-    <div class="card">
-      <p><strong>CompTIA Network+ (N10-009)</strong> <span class="status">Preparing for exam</span></p>
     </div>
 
-    <h3 class="subhead">Languages</h3>
-    <div class="card">
-      <ul class="langs">
-        <li><strong>English</strong> <span class="muted">Professional working proficiency</span></li>
-        <li><strong>Urdu</strong> <span class="muted">Native</span></li>
-        <li><strong>Arabic</strong> <span class="muted">Conversational, able to support Arabic-speaking users</span></li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact" class="view wrap page" aria-labelledby="contact-title">
-    <h2 id="contact-title" tabindex="-1">Contact me</h2>
-    <p class="muted">Open to IT support roles in Saudi Arabia. Iqama transferable, available for interview.</p>
-
-    <div class="contact-grid">
-      <a href="mailto:bilad900@gmail.com"><span class="label">Email</span><span class="value">bilad900@gmail.com</span></a>
-      <a href="tel:+966562775409"><span class="label">Phone</span><span class="value">+966 56 277 5409</span></a>
-      <a href="https://wa.me/966562775409" target="_blank" rel="noopener"><span class="label">WhatsApp</span><span class="value">Message me</span></a>
-      <a href="https://linkedin.com/in/bilad-ul-haq-8737a3341" target="_blank" rel="noopener"><span class="label">LinkedIn</span><span class="value">Bilad Ul Haq</span></a>
-      <div><span class="label">Location</span><span class="value">Riyadh, Saudi Arabia</span></div>
-      <a href="cv.pdf" download><span class="label">CV</span><span class="value">Download PDF</span></a>
-    </div>
-
-    <h3 class="subhead">Send a message</h3>
-    <form id="contact-form">
-      <label>Your name
-        <input type="text" name="name" required autocomplete="name">
-      </label>
-      <label>Your email
-        <input type="email" name="email" required autocomplete="email">
-      </label>
-      <label>Message
-        <textarea name="message" required></textarea>
-      </label>
-      <div><button class="btn primary" type="submit">Send message</button></div>
-      <p class="form-note">This opens your email app with the message ready to send.</p>
+    <form class="ticket-form reveal" id="ticket-form" novalidate>
+      <div class="ticket-form__head">
+        <span><svg class="i" aria-hidden="true"><use href="#i-ticket"/></svg> New incident</span>
+        <span class="ticket-form__no" id="ticket-no">INC0000000</span>
+      </div>
+      <div class="ticket-form__body">
+        <div class="field">
+          <label for="t-name">Caller</label>
+          <input id="t-name" name="name" type="text" autocomplete="name" placeholder="Your name" required>
+          <p class="field__err" hidden></p>
+        </div>
+        <div class="field">
+          <label for="t-email">Email</label>
+          <input id="t-email" name="email" type="email" autocomplete="email" placeholder="name@company.com" required>
+          <p class="field__err" hidden></p>
+        </div>
+        <div class="field">
+          <label for="t-priority">Priority</label>
+          <select id="t-priority" name="priority">
+            <option value="P1">P1 · Critical: I want to hire you</option>
+            <option value="P2" selected>P2 · High: Job opportunity</option>
+            <option value="P3">P3 · Moderate: Website or collaboration</option>
+            <option value="P4">P4 · Low: Just saying hi</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="t-subject">Short description</label>
+          <input id="t-subject" name="subject" type="text" placeholder="IT Support role in Riyadh">
+        </div>
+        <div class="field field--full">
+          <label for="t-message">Description</label>
+          <textarea id="t-message" name="message" rows="5" placeholder="Tell me about the role, the team or the project." required></textarea>
+          <p class="field__err" hidden></p>
+        </div>
+        <div class="ticket-form__foot">
+          <p class="form-note">Submitting opens your email app with this ticket filled in, ready to send.</p>
+          <button class="btn btn--primary" type="submit"><svg class="i" aria-hidden="true"><use href="#i-ticket"/></svg>Submit ticket</button>
+        </div>
+        <p class="form-status" id="form-status" role="status" hidden></p>
+      </div>
+      <span class="stamp" aria-hidden="true">Logged</span>
     </form>
-  </section>
+  </div>
+</section>
 
 </main>
 
-<footer>
-  <div class="wrap">Muhammad Bilad Ul Haq, IT Support Specialist, Riyadh</div>
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <p>© <span id="year">2026</span> Muhammad Bilad Ul Haq</p>
+    <p class="footer__status"><span class="status"><i aria-hidden="true"></i>All systems operational</span></p>
+    <button class="btn btn--ghost btn--small" id="reboot-btn" type="button">
+      <svg class="i" aria-hidden="true"><use href="#i-power"/></svg>Turn it off and on again
+    </button>
+  </div>
 </footer>
 
-<script>
-  (function () {
-    var views = Array.prototype.slice.call(document.querySelectorAll('.view'));
-    var links = Array.prototype.slice.call(document.querySelectorAll('nav a'));
-    var ids = views.map(function (v) { return v.id; });
-    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var first = true;
-    var counted = false;
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-    function countUp() {
-      if (counted || reduce) return;
-      var box = document.querySelector('.results');
-      function run() {
-        if (counted) return;
-        counted = true;
-        document.querySelectorAll('.count').forEach(function (el) {
-          var to = parseInt(el.getAttribute('data-to'), 10);
-          var start = null, dur = 1400;
-          function step(t) {
-            if (!start) start = t;
-            var p = Math.min((t - start) / dur, 1);
-            el.textContent = Math.round(to * (1 - Math.pow(1 - p, 3)));
-            if (p < 1) requestAnimationFrame(step);
-          }
-          el.textContent = '0';
-          requestAnimationFrame(step);
-        });
-      }
-      if ('IntersectionObserver' in window) {
-        var io = new IntersectionObserver(function (entries) {
-          if (entries[0].isIntersecting) { run(); io.disconnect(); }
-        }, { threshold: 0.4 });
-        io.observe(box);
-      } else { run(); }
-    }
-
-    function show() {
-      var id = location.hash.replace('#', '');
-      if (ids.indexOf(id) === -1) id = 'home';
-      views.forEach(function (v) {
-        var on = v.id === id;
-        v.hidden = !on;
-        v.classList.remove('enter');
-        if (on && !first) { void v.offsetWidth; v.classList.add('enter'); }
-      });
-      links.forEach(function (a) {
-        if (a.getAttribute('href') === '#' + id) a.setAttribute('aria-current', 'page');
-        else a.removeAttribute('aria-current');
-      });
-      if (id === 'home') countUp();
-      window.scrollTo(0, 0);
-      if (!first) {
-        document.getElementById('home').classList.remove('intro');
-        var h = document.getElementById(id).querySelector('h1, h2');
-        if (h) h.focus({ preventScroll: true });
-      }
-      first = false;
-    }
-    window.addEventListener('hashchange', show);
-    show();
-
-    document.getElementById('scroll-cue').addEventListener('click', function () {
-      document.getElementById('results-title').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' });
-    });
-
-    document.getElementById('contact-form').addEventListener('submit', function (e) {
-      e.preventDefault();
-      var f = e.target;
-      var subject = 'Website enquiry from ' + f.name.value;
-      var body = f.message.value + '\n\n' + f.name.value + '\n' + f.email.value;
-      location.href = 'mailto:bilad900@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-    });
-  })();
-</script>
+<script src="main.js" defer></script>
 </body>
 </html>
