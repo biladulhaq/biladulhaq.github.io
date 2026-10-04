@@ -64,27 +64,30 @@
   <symbol id="i-square" viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="1"/></symbol>
   <symbol id="i-pause" viewBox="0 0 24 24"><rect x="14" y="4" width="4" height="16" rx="1"/><rect x="6" y="4" width="4" height="16" rx="1"/></symbol>
   <symbol id="i-play" viewBox="0 0 24 24"><path d="M6 3l14 9-14 9V3z"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+  <symbol id="i-arrow-left" viewBox="0 0 24 24"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></symbol>
+  <symbol id="i-briefcase" viewBox="0 0 24 24"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><rect width="20" height="14" x="2" y="6" rx="2"/></symbol>
 </svg>
 
 <a class="skip" href="#main">Skip to content</a>
 <div class="progress" aria-hidden="true"><span></span></div>
 
-<!-- ============================== NAV ============================== -->
 <header class="nav">
   <div class="nav__inner wrap">
-    <a class="brand" href="#hero" aria-label="Back to top">
+    <a class="brand" href="index.html" aria-current="page" aria-label="bilad.support home">
       <span class="brand__led" aria-hidden="true"></span>
       <span class="brand__name">bilad<span class="brand__dot">.</span>support</span>
     </a>
 
     <nav class="nav__links" id="nav-links" aria-label="Main">
-      <a href="#about">About</a>
-      <a href="#impact">Impact</a>
-      <a href="#skills">Skills</a>
-      <a href="#experience">Experience</a>
-      <a href="#desk">Live desk</a>
-      <a href="#after-hours">After hours</a>
-      <a href="#contact">Contact</a>
+      <a href="about.html">About</a>
+      <a href="impact.html">Impact</a>
+      <a href="skills.html">Skills</a>
+      <a href="experience.html">Experience</a>
+      <a href="desk.html">Live desk</a>
+      <a href="after-hours.html">After hours</a>
+      <a href="contact.html">Contact</a>
     </nav>
 
     <div class="nav__actions">
@@ -93,7 +96,7 @@
         <svg class="i i--sun" aria-hidden="true"><use href="#i-sun"/></svg>
         <span class="theme-toggle__label">Night shift</span>
       </button>
-      <a class="btn btn--primary btn--small nav__cta" href="#contact">Open a ticket</a>
+      <a class="btn btn--primary btn--small nav__cta" href="contact.html">Open a ticket</a>
       <button class="nav__burger" id="nav-burger" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
         <svg class="i i--menu" aria-hidden="true"><use href="#i-menu"/></svg>
         <svg class="i i--close" aria-hidden="true"><use href="#i-x"/></svg>
@@ -102,9 +105,8 @@
   </div>
 </header>
 
-<main id="main">
+<main id="main" class="page">
 
-<!-- ============================== HERO ============================== -->
 <section class="hero" id="hero">
   <canvas class="hero__canvas" id="net-canvas" aria-hidden="true"></canvas>
 
@@ -128,7 +130,7 @@
       </p>
 
       <div class="hero__ctas rise" style="--d:4">
-        <a class="btn btn--primary magnetic" href="#contact">
+        <a class="btn btn--primary magnetic" href="contact.html">
           <svg class="i" aria-hidden="true"><use href="#i-ticket"/></svg>Open a ticket
         </a>
         <a class="btn btn--ghost magnetic" href="cv.pdf" download="Muhammad-Bilad-Ul-Haq-CV.pdf">
@@ -188,10 +190,9 @@
     </div>
   </div>
 
-  <a class="hero__scroll" href="#about"><span class="sr-only">Scroll to About</span><b aria-hidden="true">scroll</b><i aria-hidden="true"></i></a>
+  <a class="hero__scroll" href="#catalog"><span class="sr-only">Scroll to the page list</span><b aria-hidden="true">scroll</b><i aria-hidden="true"></i></a>
 </section>
 
-<!-- ============================== MARQUEE ============================== -->
 <div class="marquee" aria-label="Tools and technologies I work with">
   <div class="marquee__row">
     <ul class="marquee__track">
@@ -205,511 +206,65 @@
   </div>
 </div>
 
-<!-- ============================== ABOUT ============================== -->
-<section class="section" id="about">
+<section class="section section--alt" id="catalog">
+  <div class="bg-fx" data-fx="circuit" data-fx-count="12" aria-hidden="true"></div>
   <div class="wrap">
     <header class="section__head">
-      <p class="eyebrow" data-type>PS&gt; whoami</p>
-      <h2 class="section__title">I keep people working.</h2>
+      <p class="eyebrow" data-type>PS&gt; Get-ChildItem</p>
+      <h2 class="section__title">Service catalog</h2>
+      <p class="section__sub">Each page covers one part of my CV. Pick one to open it.</p>
     </header>
-
-    <div class="about">
-      <div class="about__text reveal">
-        <p class="lead">I'm the person people call when Outlook won't open, the VPN drops, or a new joiner needs a laptop and an account by tomorrow.</p>
-        <p>I have 3+ years of on-site help desk and desktop support in enterprise environments in Saudi Arabia and Pakistan. Today I support 55+ users at Sinopec Petroleum's Riyadh branch through EFFC, a security-controlled energy site. The work spans Windows 10/11, Microsoft 365, Active Directory, LAN/WAN networking and the full IT asset lifecycle.</p>
-        <p>I resolve Tier 1 and Tier 2 incidents within SLA using ITIL practices, supervise two IT support staff, and write the SOPs and knowledge base articles that stop the same tickets from coming back.</p>
-
-        <dl class="facts">
-          <div><dt>Based in</dt><dd>Riyadh, Saudi Arabia</dd></div>
-          <div><dt>Iqama</dt><dd>Transferable</dd></div>
-          <div><dt>Degree</dt><dd>BSc Information Technology</dd></div>
-          <div><dt>Studying for</dt><dd>CompTIA Network+</dd></div>
-          <div><dt>Languages</dt><dd>English, Urdu, Arabic</dd></div>
-          <div><dt>Team</dt><dd>Supervises 2 IT support staff</dd></div>
-        </dl>
-      </div>
-
-      <div class="terminal reveal" id="terminal" style="--d:1">
-        <div class="terminal__bar">
-          <span class="terminal__title"><svg class="i" aria-hidden="true"><use href="#i-terminal"/></svg><span>Windows PowerShell · visitor@bilad</span></span>
-          <span class="terminal__ctrls">
-            <button type="button" data-win="min" aria-label="Minimize terminal"><svg class="i" aria-hidden="true"><use href="#i-minus"/></svg></button>
-            <button type="button" data-win="max" aria-label="Maximize terminal"><svg class="i" aria-hidden="true"><use href="#i-square"/></svg></button>
-            <button type="button" data-win="close" class="is-close" aria-label="Close terminal"><svg class="i" aria-hidden="true"><use href="#i-x"/></svg></button>
-          </span>
-        </div>
-        <div class="terminal__body" id="term-body">
-          <div class="term-out" id="term-out" role="log" aria-live="polite">
-            <div class="term-row t-dim">Windows PowerShell
-Copyright (C) Muhammad Bilad Ul Haq. All rights reserved.
-
-Type <span class="t-y">help</span> to see what this terminal can do.</div>
-          </div>
-          <form class="term-line" id="term-form" autocomplete="off">
-            <label class="term-prompt" for="term-input">PS<span class="term-prompt__path"> C:\Users\visitor</span>&gt;</label>
-            <input class="term-input" id="term-input" type="text" spellcheck="false" autocapitalize="off" autocorrect="off" enterkeyhint="go">
-          </form>
-        </div>
-        <div class="terminal__chips" aria-label="Try a command">
-          <button type="button" data-cmd="help">help</button>
-          <button type="button" data-cmd="Get-Skills">Get-Skills</button>
-          <button type="button" data-cmd="Test-Connection bilad">Test-Connection bilad</button>
-          <button type="button" data-cmd="neofetch">neofetch</button>
-          <button type="button" data-cmd="ipconfig">ipconfig</button>
-          <button type="button" data-cmd="hire">hire</button>
-        </div>
-      </div>
+    <div class="catalog">
+      <a class="cat-card spotlight reveal" href="about.html" style="--d:0">
+        <span class="cat-card__icon"><svg class="i" aria-hidden="true"><use href="#i-terminal"/></svg></span>
+        <span class="cat-card__file mono">about.html</span>
+        <span class="cat-card__title">About</span>
+        <span class="cat-card__desc">Who I am and how I work, plus a PowerShell terminal you can type in.</span>
+        <span class="cat-card__go mono">Open page<svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+      </a>
+      <a class="cat-card spotlight reveal" href="impact.html" style="--d:1">
+        <span class="cat-card__icon"><svg class="i" aria-hidden="true"><use href="#i-chart"/></svg></span>
+        <span class="cat-card__file mono">impact.html</span>
+        <span class="cat-card__title">Impact</span>
+        <span class="cat-card__desc">Measured results from the ticket queue: SLA, setup times, assets and more.</span>
+        <span class="cat-card__go mono">Open page<svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+      </a>
+      <a class="cat-card spotlight reveal" href="skills.html" style="--d:2">
+        <span class="cat-card__icon"><svg class="i" aria-hidden="true"><use href="#i-monitor"/></svg></span>
+        <span class="cat-card__file mono">skills.html</span>
+        <span class="cat-card__title">Skills</span>
+        <span class="cat-card__desc">Help desk, Microsoft 365, Active Directory, networking, ITSM and scripting.</span>
+        <span class="cat-card__go mono">Open page<svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+      </a>
+      <a class="cat-card spotlight reveal" href="experience.html" style="--d:3">
+        <span class="cat-card__icon"><svg class="i" aria-hidden="true"><use href="#i-briefcase"/></svg></span>
+        <span class="cat-card__file mono">experience.html</span>
+        <span class="cat-card__title">Experience</span>
+        <span class="cat-card__desc">On-site roles in Riyadh and Pakistan, plus education, certification and languages.</span>
+        <span class="cat-card__go mono">Open page<svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+      </a>
+      <a class="cat-card spotlight reveal" href="desk.html" style="--d:0">
+        <span class="cat-card__icon"><svg class="i" aria-hidden="true"><use href="#i-headset"/></svg></span>
+        <span class="cat-card__file mono">desk.html</span>
+        <span class="cat-card__title">Live desk</span>
+        <span class="cat-card__desc">A simulated service desk queue. Jump in and help clear the tickets.</span>
+        <span class="cat-card__go mono">Open page<svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+      </a>
+      <a class="cat-card spotlight reveal" href="after-hours.html" style="--d:1">
+        <span class="cat-card__icon"><svg class="i" aria-hidden="true"><use href="#i-sparkles"/></svg></span>
+        <span class="cat-card__file mono">after-hours.html</span>
+        <span class="cat-card__title">After hours</span>
+        <span class="cat-card__desc">My side interests: building websites and exploring AI tools.</span>
+        <span class="cat-card__go mono">Open page<svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+      </a>
+      <a class="cat-card cat-card--wide cat-card--accent spotlight reveal" href="contact.html" style="--d:2">
+        <span class="cat-card__icon"><svg class="i" aria-hidden="true"><use href="#i-ticket"/></svg></span>
+        <span class="cat-card__file mono">contact.html</span>
+        <span class="cat-card__title">Contact</span>
+        <span class="cat-card__desc">Hiring for IT support? Open a ticket, or reach me by email, phone or LinkedIn.</span>
+        <span class="cat-card__go mono">Open a ticket<svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+      </a>
     </div>
-  </div>
-</section>
-
-<!-- ============================== IMPACT ============================== -->
-<section class="section section--alt" id="impact">
-  <div class="wrap">
-    <header class="section__head">
-      <p class="eyebrow" data-type>PS&gt; Get-Metrics | Format-Table</p>
-      <h2 class="section__title">Results from the ticket queue</h2>
-      <p class="section__sub">Measured outcomes from two on-site help desk roles.</p>
-    </header>
-
-    <div class="stats">
-      <article class="stat stat--wide spotlight reveal" style="--d:0">
-        <p class="stat__label">SLA compliance at EFFC</p>
-        <p class="stat__value"><span data-count="95">95</span><small>%+</small></p>
-        <span class="meter meter--lg" aria-hidden="true"><span class="meter__fill" style="--v:.95"></span></span>
-        <p class="stat__note">On 15+ incidents and service requests a week, logged and closed under ITIL. 92% at Abacus Consulting before that.</p>
-      </article>
-      <article class="stat spotlight reveal" style="--d:1">
-        <p class="stat__label">Users supported in Riyadh</p>
-        <p class="stat__value"><span data-count="55">55</span><small>+</small></p>
-        <p class="stat__note">On a security-controlled energy site.</p>
-      </article>
-      <article class="stat spotlight reveal" style="--d:2">
-        <p class="stat__label">Users supported at Abacus</p>
-        <p class="stat__value"><span data-count="130">130</span><small>+</small></p>
-        <p class="stat__note">With 30+ tickets resolved every week.</p>
-      </article>
-
-      <article class="stat stat--wide spotlight reveal" style="--d:0">
-        <p class="stat__label">New-device setup time</p>
-        <p class="stat__value">&lt;<span data-count="90">90</span><small>min</small></p>
-        <div class="bars" role="img" aria-label="Setup time cut from about 4 hours to under 90 minutes">
-          <div class="bars__row"><span>Before</span><span class="bars__track"><span class="bars__fill bars__fill--before" style="--v:1"></span></span><span class="bars__val">~4 h</span></div>
-          <div class="bars__row"><span>Now</span><span class="bars__track"><span class="bars__fill" style="--v:.375"></span></span><span class="bars__val">&lt;90 min</span></div>
-        </div>
-        <p class="stat__note">Across 60+ Windows 10/11 machines, using a standard configuration checklist and bulk software deployment.</p>
-      </article>
-      <article class="stat spotlight reveal" style="--d:1">
-        <p class="stat__label">First-contact resolution</p>
-        <p class="stat__value"><span data-count="70">70</span><small>%+</small></p>
-        <span class="meter" aria-hidden="true"><span class="meter__fill" style="--v:.7"></span></span>
-        <p class="stat__note">At the desk, by phone and over remote desktop.</p>
-      </article>
-      <article class="stat spotlight reveal" style="--d:2">
-        <p class="stat__label">Fewer repeat tickets</p>
-        <p class="stat__value">~<span data-count="30">30</span><small>%</small></p>
-        <p class="stat__note">After writing 15+ SOPs and knowledge base articles.</p>
-      </article>
-
-      <article class="stat spotlight reveal" style="--d:0">
-        <p class="stat__label">Assets in the register</p>
-        <p class="stat__value"><span data-count="150">150</span><small>+</small></p>
-        <p class="stat__note">100% record accuracy on two audits.</p>
-      </article>
-      <article class="stat spotlight reveal" style="--d:1">
-        <p class="stat__label">Microsoft 365 licenses reclaimed</p>
-        <p class="stat__value"><span data-count="10">10</span><small>+</small></p>
-        <p class="stat__note">Across two quarterly reconciliations.</p>
-      </article>
-      <article class="stat spotlight reveal" style="--d:2">
-        <p class="stat__label">Active Directory requests a month</p>
-        <p class="stat__value"><span data-count="50">50</span><small>+</small></p>
-        <p class="stat__note">Provisioning, resets, groups and access changes.</p>
-      </article>
-      <article class="stat spotlight reveal" style="--d:3">
-        <p class="stat__label">Joiner, mover, leaver turnaround</p>
-        <p class="stat__value"><span data-count="1">1</span><small>day</small></p>
-        <p class="stat__note">100% completed within one business day.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ============================== SKILLS ============================== -->
-<section class="section" id="skills">
-  <div class="wrap">
-    <header class="section__head">
-      <p class="eyebrow" data-type>PS&gt; Get-Skills</p>
-      <h2 class="section__title">The toolkit I bring to the service desk</h2>
-    </header>
-
-    <div class="skills">
-      <article class="skill-card spotlight reveal" style="--d:0">
-        <header class="skill-card__head">
-          <span class="skill-card__icon"><svg class="i" aria-hidden="true"><use href="#i-headset"/></svg></span>
-          <h3>Help desk &amp; desktop support</h3>
-          <span class="skill-card__count"><span class="led" aria-hidden="true"></span><span data-chip-count>9</span></span>
-        </header>
-        <ul class="chips">
-          <li>Tier 1 / Tier 2 support</li><li>Service desk operations</li><li>End-user support</li><li>Deskside &amp; remote support</li><li>RDP, TeamViewer, AnyDesk</li><li>Hardware &amp; software troubleshooting</li><li>Printers &amp; peripherals</li><li>User onboarding &amp; training</li><li>Customer service</li>
-        </ul>
-      </article>
-
-      <article class="skill-card skill-card--wide spotlight reveal" style="--d:1">
-        <header class="skill-card__head">
-          <span class="skill-card__icon"><svg class="i" aria-hidden="true"><use href="#i-monitor"/></svg></span>
-          <h3>Microsoft &amp; endpoints</h3>
-          <span class="skill-card__count"><span class="led" aria-hidden="true"></span><span data-chip-count>15</span></span>
-        </header>
-        <ul class="chips">
-          <li>Windows 10/11</li><li>Windows Server</li><li>Active Directory (ADUC)</li><li>Group Policy (GPO)</li><li>Microsoft 365 admin center</li><li>Exchange Online</li><li>Teams</li><li>SharePoint</li><li>OneDrive</li><li>Intune (basic)</li><li>Imaging &amp; deployment</li><li>Bulk software deployment</li><li>BitLocker</li><li>Hyper-V</li><li>VMware</li>
-        </ul>
-      </article>
-
-      <article class="skill-card skill-card--wide spotlight reveal" style="--d:0">
-        <header class="skill-card__head">
-          <span class="skill-card__icon"><svg class="i" aria-hidden="true"><use href="#i-network"/></svg></span>
-          <h3>Networking &amp; security</h3>
-          <span class="skill-card__count"><span class="led" aria-hidden="true"></span><span data-chip-count>14</span></span>
-        </header>
-        <ul class="chips">
-          <li>TCP/IP</li><li>DNS</li><li>DHCP</li><li>LAN/WAN</li><li>Wi-Fi</li><li>VPN</li><li>Routing &amp; switching</li><li>Proxy server</li><li>Network troubleshooting</li><li>Access control</li><li>MFA</li><li>Endpoint security &amp; antivirus</li><li>Patch management</li><li>Data confidentiality</li>
-        </ul>
-      </article>
-
-      <article class="skill-card spotlight reveal" style="--d:1">
-        <header class="skill-card__head">
-          <span class="skill-card__icon"><svg class="i" aria-hidden="true"><use href="#i-clipboard"/></svg></span>
-          <h3>ITSM &amp; ITIL</h3>
-          <span class="skill-card__count"><span class="led" aria-hidden="true"></span><span data-chip-count>9</span></span>
-        </header>
-        <ul class="chips">
-          <li>ITIL v4 practices</li><li>Incident, problem &amp; change</li><li>Service requests</li><li>ServiceNow</li><li>Jira Service Management</li><li>SLA management</li><li>Triage &amp; escalation</li><li>Root cause analysis</li><li>KB articles &amp; SOPs</li>
-        </ul>
-      </article>
-
-      <article class="skill-card spotlight reveal" style="--d:0">
-        <header class="skill-card__head">
-          <span class="skill-card__icon"><svg class="i" aria-hidden="true"><use href="#i-terminal"/></svg></span>
-          <h3>Scripting &amp; documentation</h3>
-          <span class="skill-card__count"><span class="led" aria-hidden="true"></span><span data-chip-count>4</span></span>
-        </header>
-        <ul class="chips">
-          <li>PowerShell</li><li>CMD &amp; batch scripting</li><li>Technical documentation</li><li>Reporting to management</li>
-        </ul>
-        <pre class="mini-code" aria-label="Example PowerShell commands"><span class="t-dim">PS&gt;</span> <span class="t-y">Unlock-ADAccount</span> <span class="t-dim">-Identity</span> jdoe
-<span class="t-dim">PS&gt;</span> <span class="t-y">gpupdate</span> /force
-<span class="t-g">User Policy update has completed successfully.</span></pre>
-      </article>
-
-      <article class="skill-card skill-card--wide spotlight reveal" style="--d:1">
-        <header class="skill-card__head">
-          <span class="skill-card__icon"><svg class="i" aria-hidden="true"><use href="#i-box"/></svg></span>
-          <h3>IT asset &amp; license management</h3>
-          <span class="skill-card__count"><span class="led" aria-hidden="true"></span><span data-chip-count>6</span></span>
-        </header>
-        <ul class="chips">
-          <li>Asset lifecycle, procurement to retirement</li><li>Asset tagging &amp; inventory</li><li>Software asset management (SAM)</li><li>License compliance</li><li>Microsoft 365 licensing</li><li>Vendor &amp; procurement coordination</li>
-        </ul>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ============================== EXPERIENCE ============================== -->
-<section class="section section--alt" id="experience">
-  <div class="wrap">
-    <header class="section__head">
-      <p class="eyebrow" data-type>PS&gt; Get-History</p>
-      <h2 class="section__title">Where I've worked</h2>
-    </header>
-
-    <div class="timeline">
-      <span class="timeline__rail" aria-hidden="true"><span class="timeline__fill"></span></span>
-      <ol class="jobs">
-        <li class="job job--current reveal">
-          <span class="job__node" aria-hidden="true"></span>
-          <article class="job__card">
-            <header class="job__head">
-              <div>
-                <p class="job__dates mono">Jan 2025 – Present · <span data-from="2025-01">1 yr 10 mos</span></p>
-                <h3 class="job__role">IT Support Specialist</h3>
-                <p class="job__org">EFFC <span>· on-site at Sinopec Petroleum Branch</span></p>
-              </div>
-              <div class="job__meta">
-                <span class="status"><i aria-hidden="true"></i>Current role</span>
-                <span class="job__place mono">Riyadh, Saudi Arabia</span>
-              </div>
-            </header>
-            <ul class="job__kpis mono" aria-label="Key numbers">
-              <li><b>55+</b> users</li><li><b>95%+</b> SLA</li><li><b>60+</b> devices deployed</li><li><b>150+</b> assets</li><li><b>2</b> staff supervised</li>
-            </ul>
-            <ul class="job__list">
-              <li>Resolve 15+ incidents and service requests a week for 55+ users on a security-controlled energy site, keeping SLA compliance above 95% under ITIL incident and request management.</li>
-              <li>Cut new-device setup from about 4 hours to under 90 minutes across 60+ Windows 10/11 desktops and laptops with a standard configuration checklist and bulk software deployment.</li>
-              <li>Complete 100% of joiner, mover and leaver requests within one business day through Active Directory: provisioning, password resets, group policy and access control.</li>
-              <li>Reclaimed 10+ unused Microsoft 365 licenses across two quarterly reconciliations, and manage Exchange Online mailboxes, Teams and OneDrive access for the site.</li>
-              <li>Restore connectivity for network incidents in under 1 hour on average across LAN/WAN, DNS/DHCP, Wi-Fi, VPN, switches and routers.</li>
-              <li>Achieved 100% record accuracy on two asset audits by maintaining the register for 150+ hardware and software assets.</li>
-              <li>Reduced repeat tickets by about 30% by writing 15+ SOPs and knowledge base articles and running knowledge-transfer sessions.</li>
-              <li>Supervise 2 IT support staff, report weekly to senior management, and coordinate vendors on procurement, repairs and warranty claims.</li>
-            </ul>
-          </article>
-        </li>
-
-        <li class="job reveal">
-          <span class="job__node" aria-hidden="true"></span>
-          <article class="job__card">
-            <header class="job__head">
-              <div>
-                <p class="job__dates mono">Dec 2022 – Jan 2025 · <span data-from="2022-12" data-to="2025-01">2 yrs 2 mos</span></p>
-                <h3 class="job__role">IT Support, Tier 1</h3>
-                <p class="job__org">Abacus Consulting International Organization</p>
-              </div>
-              <div class="job__meta">
-                <span class="job__place mono">Pakistan · on-site</span>
-              </div>
-            </header>
-            <ul class="job__kpis mono" aria-label="Key numbers">
-              <li><b>130+</b> users</li><li><b>30+</b> tickets a week</li><li><b>92%</b> SLA</li><li><b>70%+</b> first-contact fix</li><li><b>98%</b> inventory accuracy</li>
-            </ul>
-            <ul class="job__list">
-              <li>Resolved 30+ tickets a week for 130+ on-site users across hardware, software, printers, peripherals and business applications, meeting SLA on 92% of incidents.</li>
-              <li>Reached first-contact resolution above 70% on Windows 10/11, Microsoft 365, printer, VPN and login issues at the desk, by phone and through remote desktop tools.</li>
-              <li>Onboarded new users within one business day: Microsoft 365 accounts, licenses, mailboxes, device setup, first login and MFA.</li>
-              <li>Handled 50+ Active Directory requests a month and enforced software usage policy through domain and proxy server configuration.</li>
-              <li>Installed and configured software on 130+ desktops and laptops, reaching 98% inventory accuracy at the annual audit.</li>
-              <li>Cut repeat incidents by about 20% through root cause analysis and permanent fixes, escalating Tier 2/3 issues with complete diagnostic notes.</li>
-              <li>Kept office LAN/WAN connectivity stable by troubleshooting routers, switches and network configuration.</li>
-            </ul>
-          </article>
-        </li>
-      </ol>
-    </div>
-  </div>
-</section>
-
-<!-- ============================== LIVE DESK ============================== -->
-<section class="section" id="desk">
-  <div class="wrap">
-    <header class="section__head">
-      <p class="eyebrow" data-type>PS&gt; Get-Content .\helpdesk.log -Wait</p>
-      <h2 class="section__title">A shift at the service desk</h2>
-      <p class="section__sub">A live simulation of the tickets I handle every day. Press <b>Assist</b> on any open ticket to help clear the queue.</p>
-    </header>
-
-    <div class="desk reveal">
-      <div class="desk__board">
-        <div class="desk__bar">
-          <span class="live-dot" aria-hidden="true"></span>
-          <span class="desk__name mono">Service desk queue</span>
-          <span class="desk__sim mono">Simulation</span>
-          <button class="desk__pause" id="desk-pause" type="button" aria-pressed="false">
-            <svg class="i i--pause" aria-hidden="true"><use href="#i-pause"/></svg>
-            <svg class="i i--play" aria-hidden="true"><use href="#i-play"/></svg>
-            <span>Pause</span>
-          </button>
-        </div>
-        <div class="desk__cols mono" aria-hidden="true"><span>Number</span><span>Short description</span><span>Priority</span><span>State</span></div>
-        <ul class="tickets" id="tickets" aria-label="Simulated ticket queue"></ul>
-        <p class="desk__note">Example tickets based on real day-to-day work. No real user data.</p>
-      </div>
-
-      <aside class="desk__side" aria-label="Queue statistics">
-        <div class="desk-stat"><p class="desk-stat__label">Resolved this visit</p><p class="desk-stat__value" id="d-resolved">0</p></div>
-        <div class="desk-stat"><p class="desk-stat__label">Open now</p><p class="desk-stat__value" id="d-open">0</p></div>
-        <div class="desk-stat"><p class="desk-stat__label">Avg. time to resolve</p><p class="desk-stat__value" id="d-avg">--</p></div>
-        <div class="desk-stat desk-stat--you">
-          <p class="desk-stat__label">Your assists</p>
-          <p class="desk-stat__value" id="d-you">0</p>
-          <p class="desk-stat__msg" id="d-msg" aria-live="polite">Press Assist on any open ticket.</p>
-        </div>
-      </aside>
-    </div>
-  </div>
-</section>
-
-<!-- ============================== AFTER HOURS ============================== -->
-<section class="section section--alt" id="after-hours">
-  <div class="wrap">
-    <header class="section__head">
-      <p class="eyebrow" data-type>PS&gt; Get-Hobbies</p>
-      <h2 class="section__title">After hours, I build websites and explore AI</h2>
-      <p class="section__sub">When the queue goes quiet, I keep building. These are the two side interests I keep coming back to.</p>
-    </header>
-
-    <div class="hobbies">
-      <article class="hobby reveal" style="--d:0">
-        <div class="hobby__demo builder" aria-hidden="true">
-          <div class="builder__code" id="builder-code"></div>
-          <div class="builder__preview" id="builder-preview">
-            <div class="bp-browser"><i></i><i></i><i></i><span>localhost/my-site</span></div>
-            <div class="bp-page">
-              <div class="bp bp--nav" data-step="1"><b></b><span></span><span></span><span></span></div>
-              <div class="bp bp--title" data-step="2"><span></span><span></span></div>
-              <div class="bp bp--btn" data-step="3"></div>
-              <div class="bp bp--cards" data-step="4"><span></span><span></span><span></span></div>
-              <div class="bp bp--foot" data-step="5"></div>
-            </div>
-          </div>
-        </div>
-        <div class="hobby__text">
-          <h3 class="hobby__title"><svg class="i" aria-hidden="true"><use href="#i-code"/></svg>I build websites</h3>
-          <p>Building websites is my favourite way to switch off after a shift. I enjoy taking an idea from an empty folder to a finished page that works on any screen, with clean layouts and animation that feels right.</p>
-          <ul class="chips">
-            <li>HTML</li><li>CSS</li><li>JavaScript</li><li>Responsive design</li><li>Animation</li>
-          </ul>
-        </div>
-      </article>
-
-      <article class="hobby reveal" style="--d:1">
-        <div class="hobby__demo chat" aria-hidden="true">
-          <div class="chat__bar"><svg class="i" aria-hidden="true"><use href="#i-sparkles"/></svg>AI assistant · example prompts</div>
-          <div class="chat__log" id="chat-log"></div>
-        </div>
-        <div class="hobby__text">
-          <h3 class="hobby__title"><svg class="i" aria-hidden="true"><use href="#i-sparkles"/></svg>I explore AI</h3>
-          <p>I like testing new AI tools to see where they genuinely help in IT work: explaining error messages, drafting SOPs and knowledge base articles, and getting a PowerShell script started faster. Every answer gets checked before it goes near a live system.</p>
-          <ul class="chips">
-            <li>Prompting</li><li>AI-assisted scripting</li><li>Drafting docs &amp; SOPs</li><li>Troubleshooting help</li><li>Trying new tools</li>
-          </ul>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ============================== CREDENTIALS ============================== -->
-<section class="section" id="credentials">
-  <div class="wrap">
-    <header class="section__head">
-      <p class="eyebrow" data-type>PS&gt; Get-Credential</p>
-      <h2 class="section__title">Education, certification and languages</h2>
-    </header>
-
-    <div class="creds">
-      <article class="cred reveal" style="--d:0">
-        <span class="cred__icon"><svg class="i" aria-hidden="true"><use href="#i-cap"/></svg></span>
-        <p class="cred__kicker">Degree</p>
-        <h3>Bachelor of Science in Information Technology</h3>
-        <p>University of the Punjab, Pakistan</p>
-        <p class="cred__meta mono">Major: Networking and Programming</p>
-      </article>
-
-      <article class="cred reveal" style="--d:1">
-        <span class="cred__icon"><svg class="i" aria-hidden="true"><use href="#i-award"/></svg></span>
-        <p class="cred__kicker">Certification · in progress</p>
-        <h3>CompTIA Network+ (N10-009)</h3>
-        <div class="install">
-          <p class="install__label"><span>Installing update</span><span>Preparing for the exam</span></p>
-          <span class="install__bar" aria-hidden="true"></span>
-        </div>
-        <ol class="domains" aria-label="Exam domains">
-          <li><b>1.0</b>Networking concepts</li>
-          <li><b>2.0</b>Network implementation</li>
-          <li><b>3.0</b>Network operations</li>
-          <li><b>4.0</b>Network security</li>
-          <li><b>5.0</b>Network troubleshooting</li>
-        </ol>
-      </article>
-
-      <article class="cred cred--lang reveal" style="--d:2">
-        <span class="cred__icon"><svg class="i" aria-hidden="true"><use href="#i-langs"/></svg></span>
-        <p class="cred__kicker">Languages · signal strength</p>
-        <ul class="langs">
-          <li>
-            <span class="langs__name">English</span>
-            <span class="langs__lvl">Professional working proficiency</span>
-            <span class="signal" data-level="4" role="img" aria-label="4 of 5 bars"><i></i><i></i><i></i><i></i><i></i></span>
-          </li>
-          <li>
-            <span class="langs__name">Urdu</span>
-            <span class="langs__lvl">Native</span>
-            <span class="signal" data-level="5" role="img" aria-label="5 of 5 bars"><i></i><i></i><i></i><i></i><i></i></span>
-          </li>
-          <li>
-            <span class="langs__name">Arabic</span>
-            <span class="langs__lvl">Conversational, able to support Arabic-speaking users</span>
-            <span class="signal" data-level="3" role="img" aria-label="3 of 5 bars"><i></i><i></i><i></i><i></i><i></i></span>
-          </li>
-        </ul>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ============================== CONTACT ============================== -->
-<section class="section section--contact" id="contact">
-  <div class="wrap contact">
-    <div class="contact__intro">
-      <p class="eyebrow" data-type>PS&gt; New-Ticket -Priority High</p>
-      <h2 class="section__title">Open a ticket with me</h2>
-      <p class="section__sub">Hiring for IT support in Riyadh or elsewhere in Saudi Arabia? My Iqama is transferable and I'm open to new opportunities. Fill in the ticket or reach me directly.</p>
-
-      <ul class="contact-list">
-        <li class="contact-item">
-          <span class="contact-item__icon"><svg class="i" aria-hidden="true"><use href="#i-mail"/></svg></span>
-          <div class="contact-item__body"><p class="contact-item__label">Email</p><a href="mailto:bilad900@gmail.com">bilad900@gmail.com</a></div>
-          <button class="icon-btn" type="button" data-copy="bilad900@gmail.com" aria-label="Copy email address"><svg class="i" aria-hidden="true"><use href="#i-copy"/></svg></button>
-        </li>
-        <li class="contact-item">
-          <span class="contact-item__icon"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg></span>
-          <div class="contact-item__body"><p class="contact-item__label">Phone</p><a href="tel:+966562775409">+966 56 277 5409</a></div>
-          <button class="icon-btn" type="button" data-copy="+966562775409" aria-label="Copy phone number"><svg class="i" aria-hidden="true"><use href="#i-copy"/></svg></button>
-        </li>
-        <li class="contact-item">
-          <span class="contact-item__icon"><svg class="i" aria-hidden="true"><use href="#i-linkedin"/></svg></span>
-          <div class="contact-item__body"><p class="contact-item__label">LinkedIn</p><a href="https://www.linkedin.com/in/bilad-ul-haq-8737a3341" target="_blank" rel="noopener">linkedin.com/in/bilad-ul-haq</a></div>
-        </li>
-        <li class="contact-item">
-          <span class="contact-item__icon"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg></span>
-          <div class="contact-item__body"><p class="contact-item__label">Location</p><p class="contact-item__value">Riyadh, Saudi Arabia · Iqama transferable</p></div>
-        </li>
-      </ul>
-    </div>
-
-    <form class="ticket-form reveal" id="ticket-form" novalidate>
-      <div class="ticket-form__head">
-        <span><svg class="i" aria-hidden="true"><use href="#i-ticket"/></svg> New incident</span>
-        <span class="ticket-form__no" id="ticket-no">INC0000000</span>
-      </div>
-      <div class="ticket-form__body">
-        <div class="field">
-          <label for="t-name">Caller</label>
-          <input id="t-name" name="name" type="text" autocomplete="name" placeholder="Your name" required>
-          <p class="field__err" hidden></p>
-        </div>
-        <div class="field">
-          <label for="t-email">Email</label>
-          <input id="t-email" name="email" type="email" autocomplete="email" placeholder="name@company.com" required>
-          <p class="field__err" hidden></p>
-        </div>
-        <div class="field">
-          <label for="t-priority">Priority</label>
-          <select id="t-priority" name="priority">
-            <option value="P1">P1 · Critical: I want to hire you</option>
-            <option value="P2" selected>P2 · High: Job opportunity</option>
-            <option value="P3">P3 · Moderate: Website or collaboration</option>
-            <option value="P4">P4 · Low: Just saying hi</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="t-subject">Short description</label>
-          <input id="t-subject" name="subject" type="text" placeholder="IT Support role in Riyadh">
-        </div>
-        <div class="field field--full">
-          <label for="t-message">Description</label>
-          <textarea id="t-message" name="message" rows="5" placeholder="Tell me about the role, the team or the project." required></textarea>
-          <p class="field__err" hidden></p>
-        </div>
-        <div class="ticket-form__foot">
-          <p class="form-note">Submitting opens your email app with this ticket filled in, ready to send.</p>
-          <button class="btn btn--primary" type="submit"><svg class="i" aria-hidden="true"><use href="#i-ticket"/></svg>Submit ticket</button>
-        </div>
-        <p class="form-status" id="form-status" role="status" hidden></p>
-      </div>
-      <span class="stamp" aria-hidden="true">Logged</span>
-    </form>
   </div>
 </section>
 

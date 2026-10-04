@@ -138,19 +138,49 @@
     burger?.addEventListener('click', () => setOpen(!nav.classList.contains('is-open')));
     links.forEach((a) => a.addEventListener('click', () => setOpen(false)));
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setOpen(false); });
+  }
 
-    if (!hasIO) return;
-    const byId = new Map(links.map((a) => [a.getAttribute('href').slice(1), a]));
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        links.forEach((a) => a.classList.remove('is-active'));
-        byId.get(entry.target.id)?.classList.add('is-active');
-      });
-    }, { rootMargin: '-45% 0px -50% 0px' });
-    ['hero', ...byId.keys()].forEach((id) => {
-      const section = document.getElementById(id);
-      if (section) io.observe(section);
+  /* ---------- page-to-page transitions ---------- */
+  const PAGES = [
+    { file: 'index.html', alias: ['home', 'index', '~', '..', '\\', '/'] },
+    { file: 'about.html', alias: ['about'] },
+    { file: 'impact.html', alias: ['impact'] },
+    { file: 'skills.html', alias: ['skills'] },
+    { file: 'experience.html', alias: ['experience', 'education'] },
+    { file: 'desk.html', alias: ['desk', 'live-desk'] },
+    { file: 'after-hours.html', alias: ['after-hours', 'afterhours', 'hobbies'] },
+    { file: 'contact.html', alias: ['contact'] },
+  ];
+
+  function go(href) {
+    if (root.classList.contains('is-leaving')) return;
+    if (reduceMotion) { window.location.href = href; return; }
+    const name = href.split('/').pop().split('?')[0].split('#')[0] || 'index.html';
+    const route = document.createElement('div');
+    route.className = 'route';
+    route.setAttribute('aria-hidden', 'true');
+    route.innerHTML = `<span class="route__bar"></span><span class="route__chip">PS&gt; Start-Process ${esc(name)}</span>`;
+    document.body.appendChild(route);
+    root.classList.add('is-leaving');
+    setTimeout(() => { window.location.href = href; }, 380);
+  }
+
+  function initPageTransitions() {
+    document.addEventListener('click', (e) => {
+      if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      const link = e.target.closest && e.target.closest('a[href]');
+      if (!link || link.target === '_blank' || link.hasAttribute('download')) return;
+      const url = new URL(link.href, window.location.href);
+      if (url.origin !== window.location.origin || !/\.html$/i.test(url.pathname)) return;
+      if (url.pathname === window.location.pathname && url.search === window.location.search) return;
+      e.preventDefault();
+      go(url.href);
+    });
+    // Coming back with the browser's Back button can restore a frozen "leaving" page.
+    window.addEventListener('pageshow', (e) => {
+      if (!e.persisted) return;
+      root.classList.remove('is-leaving');
+      $$('.route').forEach((r) => r.remove());
     });
   }
 
@@ -907,7 +937,7 @@ Arabic    [###--]  Conversational, supports Arabic-speaking users`,
     }));
 
     define('Get-Hobbies', ['hobbies', 'after-hours'], 'What I do after hours', () => (
-      `<span class="t-y">1.</span> Building websites with HTML, CSS and JavaScript\n<span class="t-y">2.</span> Exploring AI tools for scripting, docs and troubleshooting\n\n<a href="#after-hours">Scroll to After hours</a>`
+      `<span class="t-y">1.</span> Building websites with HTML, CSS and JavaScript\n<span class="t-y">2.</span> Exploring AI tools for scripting, docs and troubleshooting\n\nMore: <a href="after-hours.html">after-hours.html</a>`
     ));
 
     define('Get-Contact', ['contact'], 'How to reach me', () => (
@@ -971,7 +1001,7 @@ Ethernet adapter Visitor:
    Connection-specific DNS Suffix  . : bilad.support
    IPv4 Address. . . . . . . . . . . : 127.0.0.1 <span class="t-dim">(there's no place like home)</span>
    Subnet Mask . . . . . . . . . . . : 255.255.255.0
-   Default Gateway . . . . . . . . . : <a href="#contact">#contact</a>`,
+   Default Gateway . . . . . . . . . : <a href="contact.html">contact.html</a>`,
     }));
 
     define('gpupdate', [], 'Refresh group policy', async () => {
@@ -987,13 +1017,28 @@ Ethernet adapter Visitor:
     });
 
     define('hire', ['start-hiring', 'new-ticket'], 'Open a P1 ticket to hire me', () => {
-      const select = $('#t-priority');
-      if (select) select.value = 'P1';
-      setTimeout(() => {
-        $('#contact')?.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' });
-        setTimeout(() => $('#t-name')?.focus({ preventScroll: true }), reduceMotion ? 0 : 700);
-      }, 500);
-      return '<span class="t-g">Creating P1 ticket...</span> Taking you to the contact form.';
+      setTimeout(() => go('contact.html?priority=P1'), 700);
+      return '<span class="t-g">Creating P1 ticket...</span> Opening contact.html.';
+    });
+
+    define('ls', ['dir', 'get-childitem', 'gci'], 'List the pages on this site', () => {
+      const date = new Date().toLocaleDateString('en-GB');
+      const rows = PAGES.map((p) => `-a----        ${date}     09:00         <a href="${p.file}">${p.file}</a>`);
+      return {
+        cls: 'pre',
+        html: `\n    Directory: C:\\bilad.support\n\nMode                 LastWriteTime         Name\n----                 -------------         ----\n${rows.join('\n')}\n\n<span class="t-dim">Open one with cd, for example:</span> <span class="t-y">cd skills</span>`,
+      };
+    });
+
+    define('cd', ['set-location', 'chdir', 'open'], 'Open a page, e.g. cd skills', (args) => {
+      const raw = (args[0] || '').toLowerCase().replace(/^\.[\\/]/, '').replace(/\.html$/, '');
+      if (!raw) return 'C:\\bilad.support';
+      const page = PAGES.find((p) => p.alias.includes(raw) || p.file === `${raw}.html`);
+      if (!page) {
+        return { cls: 't-err', html: `cd : Cannot find path 'C:\\bilad.support\\${esc(args[0])}' because it does not exist.\nType <span class="t-y">ls</span> to see the pages.` };
+      }
+      setTimeout(() => go(page.file), 500);
+      return `Opening <span class="t-y">${page.file}</span>...`;
     });
 
     define('theme', ['toggle-theme'], 'Switch night shift / day shift', () => {
@@ -1029,7 +1074,7 @@ Ethernet adapter Visitor:
       if (!cmd) return;
       history.push(cmd);
       historyIndex = history.length;
-      const [head] = cmd.split(/\s+/);
+      const [head, ...args] = cmd.split(/\s+/);
       const lower = head.toLowerCase();
       if (lower === 'sudo') {
         print(`sudo : The term 'sudo' is not recognized. This is PowerShell, not Linux.\nNice try though. Try <span class="t-y">hire</span> instead.`, 't-err');
@@ -1042,7 +1087,7 @@ Ethernet adapter Visitor:
       }
       busy = true;
       try {
-        const result = await commands[key].fn();
+        const result = await commands[key].fn(args);
         if (result && typeof result === 'object') print(result.html, result.cls);
         else if (result) print(result);
       } finally {
@@ -1512,6 +1557,13 @@ Ethernet adapter Visitor:
     $('#ticket-no').textContent = number;
     const status = $('#form-status');
 
+    // The terminal's "hire" command arrives here as contact.html?priority=P1
+    const wanted = new URLSearchParams(window.location.search).get('priority');
+    if (wanted && /^P[1-4]$/.test(wanted)) {
+      $('#t-priority').value = wanted;
+      setTimeout(() => $('#t-name')?.focus(), 500);
+    }
+
     const setError = (input, message) => {
       const field = input.closest('.field');
       const err = $('.field__err', field);
@@ -1549,6 +1601,162 @@ Ethernet adapter Visitor:
       status.textContent = `Ticket ${number} is ready. Your email app should open with it filled in; press Send there. If nothing opens, email ${EMAIL} directly.`;
       status.hidden = false;
     });
+  }
+
+  /* ---------- ambient section backgrounds ---------- */
+  function initBackgroundFx() {
+    const layers = $$('.bg-fx');
+    if (!layers.length || reduceMotion) return;
+    const NS = 'http://www.w3.org/2000/svg';
+    const svgEl = (tag, attrs) => {
+      const node = document.createElementNS(NS, tag);
+      Object.entries(attrs).forEach(([k, v]) => node.setAttribute(k, v));
+      return node;
+    };
+    const narrow = () => window.innerWidth < 700;
+    const GLYPHS = {
+      code: ['</>', '{ }', '01', '10', '>_', '#', '=>', '[ ]', '$', '&&', '0x1F', 'ping', 'DNS', 'TCP', 'GPO', '::1'],
+      ai: ['</>', '{ }', 'AI', '>_', '*', '+', '01', '=>', 'fn()', '.js', '.css', 'prompt', '++', '[ ]', 'LLM', '<div>'],
+    };
+
+    const buildGlyphs = (layer) => {
+      layer.innerHTML = '';
+      const set = GLYPHS[layer.dataset.set] || GLYPHS.code;
+      const count = narrow() ? 7 : Number(layer.dataset.fxCount || 16);
+      layer.style.setProperty('--h', `${layer.offsetHeight + 80}px`);
+      for (let i = 0; i < count; i++) {
+        const glyph = document.createElement('span');
+        const hot = Math.random() < 0.2;
+        const t = rand(16, 30);
+        glyph.className = `fx-glyph${hot ? ' fx-glyph--hot' : ''}`;
+        glyph.textContent = pick(set);
+        glyph.style.cssText = [
+          `--x:${rand(2, 94).toFixed(1)}%`,
+          `--s:${rand(0.7, 1.15).toFixed(2)}rem`,
+          `--t:${t.toFixed(1)}s`,
+          `--dl:${(-rand(0, t)).toFixed(1)}s`,
+          `--dx:${rand(-40, 40).toFixed(0)}px`,
+          `--o:${hot ? 0.32 : rand(0.08, 0.18).toFixed(2)}`,
+        ].join(';');
+        layer.appendChild(glyph);
+      }
+    };
+
+    const buildCircuit = (layer) => {
+      layer.innerHTML = '';
+      const w = layer.offsetWidth;
+      const h = layer.offsetHeight;
+      if (!w || !h) return;
+      const svg = svgEl('svg', { class: 'fx-circuit', viewBox: `0 0 ${w} ${h}`, preserveAspectRatio: 'none' });
+      const count = narrow() ? 6 : Number(layer.dataset.fxCount || 12);
+      for (let i = 0; i < count; i++) {
+        const dir = i % 2 === 0 ? 1 : -1;
+        let x = dir === 1 ? -4 : w + 4;
+        let y = rand(0.04, 0.96) * h;
+        const pts = [[x, y]];
+        const segments = randInt(2, 4);
+        for (let k = 0; k < segments; k++) {
+          x += dir * rand(50, Math.max(80, Math.min(240, w * 0.18)));
+          pts.push([x, y]);
+          if (k < segments - 1) {
+            const dy = rand(20, 70) * (Math.random() < 0.5 ? -1 : 1);
+            x += dir * Math.abs(dy); // 45° bend, like a PCB trace
+            y += dy;
+            pts.push([x, y]);
+          }
+        }
+        const d = `M${pts.map(([px, py]) => `${px.toFixed(1)} ${py.toFixed(1)}`).join(' L')}`;
+        let len = 0;
+        for (let k = 1; k < pts.length; k++) len += Math.hypot(pts[k][0] - pts[k - 1][0], pts[k][1] - pts[k - 1][1]);
+        svg.appendChild(svgEl('path', { class: 'fx-trace', d }));
+        const [ex, ey] = pts[pts.length - 1];
+        svg.appendChild(svgEl('circle', { class: 'fx-pad', cx: ex.toFixed(1), cy: ey.toFixed(1), r: 3.5 }));
+        if (Math.random() < 0.75) {
+          const t = rand(3.5, 7);
+          const pulse = svgEl('path', { class: `fx-pulse${Math.random() < 0.3 ? ' fx-pulse--ok' : ''}`, d });
+          pulse.setAttribute('stroke-dasharray', `26 ${Math.round(len + 52)}`);
+          pulse.style.cssText = `--end:${-Math.round(len)}px;--t:${t.toFixed(1)}s;--dl:${(-rand(0, t)).toFixed(1)}s`;
+          svg.appendChild(pulse);
+        }
+      }
+      layer.appendChild(svg);
+    };
+
+    let legendTimer = 0;
+    const buildGraph = (layer) => {
+      layer.innerHTML = '';
+      clearInterval(legendTimer);
+      const W = Math.round(layer.offsetWidth);
+      const h = layer.offsetHeight;
+      if (!W || !h) return;
+      // Sums of sines with whole cycles per width repeat exactly every W px,
+      // so sliding the 2W-wide drawing left by half loops without a seam.
+      const steps = Math.max(1, Math.round(W / 6));
+      const series = (base, terms) => {
+        const waves = terms.map(([amp, cycles]) => ({ amp, cycles, phase: rand(0, Math.PI * 2) }));
+        const pts = [];
+        for (let k = 0; k <= steps * 2; k++) {
+          const x = (k * W) / steps;
+          let y = base;
+          waves.forEach(({ amp, cycles, phase }) => { y += amp * Math.sin((2 * Math.PI * cycles * x) / W + phase); });
+          pts.push([x, Math.max(4, Math.min(h - 2, y))]);
+        }
+        return pts;
+      };
+      const rx = series(h * 0.58, [[h * 0.14, 2], [h * 0.08, 5], [h * 0.05, 11], [h * 0.025, 23]]);
+      const tx = series(h * 0.8, [[h * 0.06, 3], [h * 0.04, 7], [h * 0.02, 17]]);
+      const line = (pts) => `M${pts.map(([x, y]) => `${x.toFixed(1)} ${y.toFixed(1)}`).join(' L')}`;
+      const svg = svgEl('svg', { class: 'fx-graph__svg', viewBox: `0 0 ${W * 2} ${h}`, preserveAspectRatio: 'none' });
+      const defs = svgEl('defs', {});
+      const grad = svgEl('linearGradient', { id: 'fx-graph-fill', x1: '0', y1: '0', x2: '0', y2: '1' });
+      grad.appendChild(svgEl('stop', { offset: '0', class: 'fx-stop-a' }));
+      grad.appendChild(svgEl('stop', { offset: '1', class: 'fx-stop-b' }));
+      defs.appendChild(grad);
+      svg.appendChild(defs);
+      svg.appendChild(svgEl('path', { class: 'fx-graph__area', d: `${line(rx)} L${W * 2} ${h} L0 ${h} Z` }));
+      svg.appendChild(svgEl('path', { class: 'fx-graph__rx', d: line(rx) }));
+      svg.appendChild(svgEl('path', { class: 'fx-graph__tx', d: line(tx) }));
+      const loop = Math.max(18, W / 22); // seconds per loop, about 22px a second
+      svg.style.setProperty('--t', `${loop.toFixed(1)}s`);
+      layer.style.setProperty('--grid-t', `${((loop * 40) / W).toFixed(2)}s`);
+      layer.appendChild(svg);
+
+      const legend = document.createElement('div');
+      legend.className = 'fx-graph__legend';
+      legend.innerHTML = '<span>Ethernet</span><span><i class="tx"></i>S <b>1.2</b> Mbps</span><span><i></i>R <b>8.4</b> Mbps</span>';
+      layer.appendChild(legend);
+      const [send, recv] = $$('b', legend);
+      legendTimer = setInterval(() => {
+        if (!layer.classList.contains('fx-on') || document.hidden) return;
+        send.textContent = rand(0.4, 3.2).toFixed(1);
+        recv.textContent = rand(2, 24).toFixed(1);
+      }, 1000);
+    };
+
+    const builders = { glyphs: buildGlyphs, circuit: buildCircuit, graph: buildGraph };
+    const build = () => layers.forEach((layer) => builders[layer.dataset.fx]?.(layer));
+    build();
+
+    let lastWidth = window.innerWidth;
+    let resizeTimer = 0;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        if (Math.abs(window.innerWidth - lastWidth) < 60) return;
+        lastWidth = window.innerWidth;
+        build();
+      }, 250);
+    });
+
+    // Only animate the layers that are on screen.
+    if (hasIO) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => entry.target.classList.toggle('fx-on', entry.isIntersecting));
+      }, { rootMargin: '120px 0px' });
+      layers.forEach((layer) => io.observe(layer));
+    } else {
+      layers.forEach((layer) => layer.classList.add('fx-on'));
+    }
   }
 
   /* ---------- turn it off and on again ---------- */
@@ -1659,6 +1867,8 @@ Ethernet adapter Visitor:
   /* ---------- start ---------- */
   initTheme();
   initNav();
+  initPageTransitions();
+  initBackgroundFx();
   initScrollEffects();
   initMarquee();
   initBarcode();
