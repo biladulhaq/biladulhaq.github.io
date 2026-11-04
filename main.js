@@ -212,10 +212,10 @@
     { tag: 'OK', text: 'Face ID verified: Muhammad Bilad Ul Haq' },
     { tag: 'OK', text: 'Memory check: 3+ years of help desk experience' },
     { tag: 'OK', text: 'Started Active Directory services' },
-    { tag: 'OK', text: 'Connected to Microsoft 365 tenant' },
+    { tag: 'OK', text: 'Connected to Active Directory' },
     { tag: 'OK', text: 'Network up: LAN/WAN, DNS, DHCP, VPN' },
     { tag: 'OK', text: 'Loaded ITIL v4 service management' },
-    { tag: 'WAIT', text: 'Installing update: CompTIA Network+ (N10-009)' },
+    { tag: 'WAIT', text: 'Installing update: CompTIA A+' },
     { text: 'All systems operational. Welcome, visitor.', cls: 'accent' },
   ];
 
@@ -900,7 +900,7 @@
     });
 
     define('whoami', [], 'Who is Bilad?', () => (
-      `bilad-pc\\bilad\n\n<b>Muhammad Bilad Ul Haq</b>\nIT Support Specialist · Khobar, Dammam, KSA\n3+ years of help desk and desktop support in Saudi Arabia and Pakistan.\nNow on-site at Sinopec Petroleum (via EFFC), supporting 55+ users.`
+      `bilad-pc\\bilad\n\n<b>Muhammad Bilad Ul Haq</b>\nIT Support Specialist · Khobar, Dammam, KSA\n3+ years of help desk and desktop support in Saudi Arabia and Pakistan.\nNow on-site at Sinopec Petroleum (via EFFC), supporting about 55 users.`
     ));
 
     define('Get-Skills', ['skills'], 'Skills by category', () => ({
@@ -918,15 +918,15 @@ Scripting &amp; docs        PowerShell, CMD/batch, documentation`,
       cls: 'pre',
       html: `<span class="t-y">Jan 2025 - Present</span>   IT Supervisor
                      EFFC, on-site at Sinopec Petroleum · Haradh
-                     55+ users · 95%+ SLA · 150+ assets · 2 staff supervised
+                     ~55 users · 2 IT staff supervised · built the company OA system
 
-<span class="t-y">Dec 2022 - Jan 2025</span>  IT Support, Tier 1
+<span class="t-y">Dec 2022 - Jan 2025</span>  IT Specialist
                      Abacus Consulting · Pakistan
-                     130+ users · 30+ tickets/week · 70%+ first-contact fix`,
+                     Tier 1/2 support · AD · Microsoft 365 · ITIL ticketing`,
     }));
 
     define('Get-Education', ['education', 'get-credential', 'certs'], 'Degree and certification', () => (
-      `<b>BSc Information Technology</b> · University of the Punjab, Pakistan\nMajor: Networking and Programming\n\n<span class="t-y">CompTIA Network+ (N10-009)</span> · preparing for the exam <span class="t-dim">[########----] installing</span>`
+      `<b>BSc Information Technology</b> · University of the Punjab, Pakistan\nMajor: Networking and Programming\n\n<span class="t-y">CompTIA A+</span> · preparing for the exam <span class="t-dim">[########----] installing</span>`
     ));
 
     define('Get-Languages', ['languages'], 'Spoken languages', () => ({
