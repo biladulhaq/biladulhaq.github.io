@@ -916,8 +916,8 @@ Scripting &amp; docs        PowerShell, CMD/batch, documentation`,
 
     define('Get-Experience', ['experience', 'get-history', 'jobs'], 'Work history', () => ({
       cls: 'pre',
-      html: `<span class="t-y">Jan 2025 - Present</span>   IT Support Specialist
-                     EFFC, on-site at Sinopec Petroleum · Riyadh
+      html: `<span class="t-y">Jan 2025 - Present</span>   IT Supervisor
+                     EFFC, on-site at Sinopec Petroleum · Haradh
                      55+ users · 95%+ SLA · 150+ assets · 2 staff supervised
 
 <span class="t-y">Dec 2022 - Jan 2025</span>  IT Support, Tier 1
